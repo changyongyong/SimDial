@@ -11,6 +11,7 @@ import copy
 class BeliefSlot(object):
     """
     A slot with a probabilistic distribution over the possible values
+    槽位在各个曹值上的概率分布
     
     :ivar value_map: entity_value -> (score, norm_value)
     :ivar last_update_turn: the last turn ID this slot is modified
@@ -28,24 +29,35 @@ class BeliefSlot(object):
         self.logger = logging.getLogger(__name__)
 
     def add_new_observation(self, value, conf, turn_id):
+        # 看到曹值，更新最近一次的修改轮数id
         self.last_update_turn = turn_id
 
+        # 更新曹值的置信
         if value in self.value_map.keys():
+            # 如果曹值已经出现过，那么在当前置信和之前置信的最大值上加0.2
             prev_conf = self.value_map[value]
             self.value_map[value] = max([prev_conf, conf]) + 0.2
             self.logger.info("Update %s conf to %f at turn %d" % (value, conf, turn_id))
         else:
+            # 如果之前没有出现过，那么将其他出现过的曹值的置信都减少一半，
+            # 记录当前曹值的置信
             self.value_map = {k: c/2 for k, c in self.value_map.items()}
             self.value_map[value] = conf
             self.logger.info("Add %s conf as %f at turn %d" % (value, conf, turn_id))
 
     def add_grounding(self, confirm_conf, disconfirm_conf, turn_id, target_value=None):
+        '''
+        根据confirm_conf, disconfirm_conf两个值更新基础置信度，
+        '''
         if len(self.value_map) > 0:
             self.last_update_turn = turn_id
+            # 如果target value为空，那么选取当前最大置信的value作为 grounded_value (就是slot最有可能的值)
             if target_value is None:
                 grounded_value = self.get_maxconf_value()
             else:
                 grounded_value = target_value
+                
+            # 更新slot 最有可能的值的 conf
             up_conf = confirm_conf * (1.0 - self.EXPLICIT_THRESHOLD)
             down_conf = disconfirm_conf * (1.0 - self.EXPLICIT_THRESHOLD)
             old_conf = self.value_map[grounded_value]
@@ -76,6 +88,9 @@ class BeliefSlot(object):
 
 
 class BeliefGoal(object):
+    '''
+    用户目标的状态追踪，这里每个request slot 算作一个goal
+    '''
     THRESHOLD = 0.7
 
     def __init__(self, uid, conf=0.0):
@@ -86,7 +101,8 @@ class BeliefGoal(object):
         self.expected_value = None
 
     def add_observation(self, conf, expected_value):
-        self.conf = max(conf, self.conf) + 0.2
+        # 根据观测更新置信 最大值基础上加0.2
+        self.conf = max(conf, self.conf) + 0.2     
         self.expected_value = expected_value
 
     def get_conf(self):
@@ -104,9 +120,10 @@ class BeliefGoal(object):
 class DialogState(State):
     """
     The dialog state class for a system
+    dm的状态跟踪类
 
     :ivar history: the raw dialog history
-    :ivar spk_state: the FSM state for turn-taking. SPK, LISTEN or EXIT
+    :ivar spk_state: the FSM state for turn-taking. SPK, LISTEN or EXIT       
     :ivar valid_entries: a list of valid system entries satisfy the user belief
     :ivar usr_beliefs: a dict of slot name -> BeliefSlot()
     :ivar sys_goals:  a dict of system goal that is obligated to answer
@@ -130,6 +147,7 @@ class DialogState(State):
     def gen_query(self):
         """
         :return: a DB compatible query given the current usr beliefs
+        获取用户slot的最大置信的value，来组成数据库查询语句
         """
         query = []
         for s in self.usr_beliefs.values():
@@ -141,6 +159,9 @@ class DialogState(State):
         return self.pending_return is not None
 
     def ready_to_inform(self):
+        '''
+        判断当前是否可以输出信息了
+        '''
         # if len(self.valid_entries) <= self.INFORM_THRESHOLD:
         #    return True
 
@@ -217,6 +238,7 @@ class System(Agent):
     def state_update(self, usr_actions, conf):
         """
         Update the dialog state given system's action in a new turn
+        根据最新一轮的用户动作更新DM的状态
     
         :param usr_actions: a list of system action, None if no action
         :param conf: float [0, 1] confidence of the parsing
@@ -229,29 +251,39 @@ class System(Agent):
 
         for action in usr_actions:
             # check for user confirm/disconfirm
+            # 当前用户的动作是 CONFIRM ，那么更新 user slot 的最可能的value的置信
             if action.act == UserAct.CONFIRM:
                 slot, _ = action.parameters[0]
                 self.state.usr_beliefs[slot].add_grounding(conf, 1.0 - conf, self.state.turn_id())
+            # 当前用户的动作是 CONFIRM ，那么更新 user slot 的最可能的value的置信，概率跟上面的情况相反
             elif action.act == UserAct.DISCONFIRM:
                 slot, _ = action.parameters[0]
                 self.state.usr_beliefs[slot].add_grounding(1.0 - conf, conf, self.state.turn_id())
+            # 当前用户的动作是 INFROM ，那么将新的值和conf添加到状态追踪上
             elif action.act == UserAct.INFORM:
                 slot, value = action.parameters[0]
                 self.state.usr_beliefs[slot].add_new_observation(value, conf, self.state.turn_id())
+            # 当前用户的动作是REQUEST 那么 这个slot是系统槽位，更新观测conf
             elif action.act == UserAct.REQUEST:
                 slot, _ = action.parameters[0]
                 self.state.sys_goals[slot].add_observation(conf, None)
+            # 当前用户的动作是新的搜索，那么重置sys goal和usr slot 的追踪
             elif action.act == UserAct.NEW_SEARCH:
                 self.state.reset_sys_goals()
                 self.state.reset_slots()
+                
+            # 当前用户的动作是 yes or no 问题
             elif action.act == UserAct.YN_QUESTION:
+                # 获取用户认为的 goal slot 的值
                 slot, value = action.parameters[0]
+                # 更新goals的置信
                 self.state.sys_goals[slot].add_observation(conf, value)
-
+            # 如果当前用户满意sys goal slot的值，那么标注sys goal 是已经发出的
             elif action.act == UserAct.SATISFY or action.act == UserAct.MORE_REQUEST:
                 for para, _ in action.parameters:
                     self.state.sys_goals[para].deliver()
 
+            # 如果用户的动作是 kb return , 那么根据query携带的曹值更新sys goal的值
             elif action.act == UserAct.KB_RETURN:
                 query = action.parameters[0]
                 results = action.parameters[1]
@@ -262,6 +294,7 @@ class System(Agent):
 
 
     def update_grounding(self, sys_actions):
+        # 根据当前系统的动作列表，如果系统动作是 IMPLICIT_CONFIRM 更新belief travker的置信值
         if type(sys_actions) is not list:
             sys_actions = [sys_actions]
 
@@ -275,13 +308,16 @@ class System(Agent):
             return None
 
         # dialog opener
+        # 对话历史长度为0，是系统发出 问候动作
         if len(self.state.history) == 0:
             return [Action(SystemAct.GREET), Action(SystemAct.REQUEST, (BaseUsrSlot.NEED, None))]
 
+        # 获取最近一次的用户动作列表
         last_usr = self.state.last_actions(DialogState.USR)
         if last_usr is None:
             raise ValueError("System should talk first")
 
+        # 如果最近一次用户的动作
         actions = []
         for usr_act in last_usr:
             if usr_act.act == UserAct.GOODBYE:
