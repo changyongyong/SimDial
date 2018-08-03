@@ -1,0 +1,2937 @@
+{
+  "meta": {
+    "name": "restaurant_style", 
+    "usr_slots": [
+      [
+        "loc", 
+        "location city", 
+        [
+          "\u4e0a\u6d77", 
+          "\u5317\u4eac", 
+          "\u897f\u5b89", 
+          "\u9752\u5c9b", 
+          "\u5927\u8fde", 
+          "\u77f3\u5bb6\u5e84", 
+          "\u5929\u6d25", 
+          "\u6842\u6797", 
+          "\u6210\u90fd", 
+          "\u6df1\u5733"
+        ]
+      ], 
+      [
+        "food_pref", 
+        "food preference", 
+        [
+          "\u6cf0\u56fd", 
+          "\u9c81", 
+          "\u97e9\u56fd", 
+          "\u65e5\u672c", 
+          "\u7f8e\u56fd", 
+          "\u5370\u5ea6", 
+          "\u7ca4", 
+          "\u6cd5\u56fd", 
+          "\u5ddd", 
+          "\u58a8\u897f\u54e5", 
+          "\u53f0\u6e7e", 
+          "\u610f\u5927\u5229"
+        ]
+      ]
+    ], 
+    "sys_slots": [
+      [
+        "open", 
+        "if it's open now", 
+        [
+          "\u5f00\u95e8", 
+          "\u5173\u95e8"
+        ]
+      ], 
+      [
+        "price", 
+        "average price per person", 
+        [
+          "\u4fbf\u5b9c", 
+          "\u5e73\u4ef7", 
+          "\u6602\u8d35"
+        ]
+      ], 
+      [
+        "parking", 
+        "if it has parking", 
+        [
+          "\u8def\u8fb9\u505c\u8f66\u4f4d", 
+          "\u4e13\u7528\u505c\u8f66\u4f4d", 
+          "\u65e0\u505c\u8f66\u4f4d"
+        ]
+      ]
+    ], 
+    "greet": "\u4f60\u597d\uff0c\u6211\u60f3\u627e\u4e00\u5bb6\u7528\u9910\u7684\u5730\u65b9", 
+    "nlg_spec": {
+      "loc": {
+        "inform": [
+          "\u6211\u73b0\u5728\u5728 %s.", 
+          "%s.", 
+          "\u6211\u5bf9 %s \u7684\u98df\u7269\u611f\u5174\u8da3.", 
+          "\u5728 %s.", 
+          "\u5728 %s."
+        ], 
+        "request": [
+          "\u4f60\u73b0\u5728\u5728\u4ec0\u4e48\u5730\u65b9?", 
+          "\u597d\u7684\uff0c\u4f60\u7684\u4f4d\u7f6e\u662f?"
+        ]
+      }, 
+      "default": {
+        "inform": [
+          "\u6211\u67e5\u770b\u4e00\u4e0b\u6570\u636e\u5e93, %s \u662f\u4e00\u4e2a\u4e0d\u9519\u7684\u9009\u62e9."
+        ], 
+        "request": [
+          "\u6211\u60f3\u8ba2\u4e00\u5bb6\u9152\u5e97.", 
+          "\u6211\u5728\u627e\u4e00\u5bb6\u9152\u5e97.", 
+          "\u63a8\u8350\u4e00\u4e2a\u5403\u996d\u7684\u5730\u65b9\u5427."
+        ]
+      }, 
+      "price": {
+        "inform": [
+          "\u90a3\u91cc\u63d0\u4f9b %s \u7684\u98df\u7269.", 
+          "\u6211\u67e5\u4e00\u4e0b. \u90a3\u91cc\u7684\u4ef7\u4f4d\u662f %s."
+        ], 
+        "request": [
+          "\u90a3\u91cc\u7684\u5e73\u5747\u4ef7\u4f4d\u662f?", 
+          "\u90a3\u91cc\u8d35\u4e48?"
+        ], 
+        "yn_question": {
+          "\u5e73\u4ef7": [
+            "\u5b83\u662f\u5e73\u4ef7\u7684\u4e48?"
+          ], 
+          "\u6602\u8d35": [
+            "\u90a3\u91cc\u6d88\u8d39\u6602\u8d35\u4e48?"
+          ], 
+          "\u4fbf\u5b9c": [
+            "\u5b83\u4fbf\u5b9c\u4e48?"
+          ]
+        }
+      }, 
+      "food_pref": {
+        "inform": [
+          "\u6211\u559c\u6b22 %s \u7684\u98df\u54c1.", 
+          "%s \u7684\u98df\u54c1.", 
+          "%s \u7684\u996d\u5e97.", 
+          "%s."
+        ], 
+        "request": [
+          "\u4f60\u559c\u6b22\u4ec0\u4e48\u70f9\u996a\u65b9\u5f0f", 
+          "\u4f60\u60f3\u5403\u4ec0\u4e48?"
+        ]
+      }, 
+      "parking": {
+        "inform": [
+          "\u505c\u8f66\u4f4d\u662f %s.", 
+          "\u5b83\u63d0\u4f9b\u505c\u8f66\u670d\u52a1\u662f %s."
+        ], 
+        "request": [
+          "\u5b83\u63d0\u4f9b\u4ec0\u4e48\u505c\u8f66\u670d\u52a1?.", 
+          "\u65b9\u4fbf\u542c\u6210\u4e48?"
+        ], 
+        "yn_question": {
+          "\u4e13\u7528\u505c\u8f66\u4f4d": [
+            "\u5b83\u6709\u4e13\u7528\u505c\u8f66\u4f4d\u4e48?"
+          ], 
+          "\u8def\u8fb9\u505c\u8f66\u4f4d": [
+            "\u5b83\u6709\u8def\u8fb9\u505c\u8f66\u4f4d\u4e48?"
+          ]
+        }
+      }, 
+      "open": {
+        "inform": [
+          "\u4e00\u4e2a\u4e0d\u9519\u7684\u9009\u62e9\u662f %s.", 
+          "\u76ee\u524d\u5408\u9002\u7684\u9009\u62e9\u662f %s."
+        ], 
+        "request": [
+          "\u544a\u8bc9\u6211\u90a3\u4e2a\u9152\u5e97\u8425\u4e1a\u65f6\u95f4\u662f.", 
+          "\u5b83\u8425\u4e1a\u7684\u65f6\u95f4\u662f?"
+        ], 
+        "yn_question": {
+          "\u5173\u95e8": [
+            "\u73b0\u5728\u5173\u95e8\u4e86\u4e48?"
+          ], 
+          "\u5f00\u95e8": [
+            "\u73b0\u5728\u9152\u5e97\u8425\u4e1a\u4e48?"
+          ]
+        }
+      }
+    }, 
+    "db_size": 100
+  }, 
+  "dialogs": [
+    [
+      {
+        "domain": "restaurant_style", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": null, 
+              "name": "#loc", 
+              "max_conf": 0.0
+            }, 
+            {
+              "max_val": null, 
+              "name": "#food_pref", 
+              "max_conf": 0.0
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.0, 
+              "name": "#default", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#open", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#price", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#parking", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [], 
+            "act": "greet"
+          }, 
+          {
+            "parameters": [
+              [
+                "#need", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "\u4f60\u597d\uff0c\u6211\u60f3\u627e\u4e00\u5bb6\u7528\u9910\u7684\u5730\u65b9 \u4f60\u9700\u8981\u4ec0\u4e48\u5e2e\u52a9\u4e48?"
+      }, 
+      {
+        "domain": "restaurant_style", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [], 
+            "act": "greet"
+          }, 
+          {
+            "parameters": [
+              [
+                "#default", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "conf": 0.99, 
+        "utt": "Hello \u673a\u5668\u4eba. \u6211\u5728\u627e\u4e00\u5bb6\u9152\u5e97."
+      }, 
+      {
+        "domain": "restaurant_style", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": null, 
+              "name": "#loc", 
+              "max_conf": 0.0
+            }, 
+            {
+              "max_val": null, 
+              "name": "#food_pref", 
+              "max_conf": 0.0
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#open", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#price", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#parking", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#loc", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "\u597d\u7684\uff0c\u4f60\u7684\u4f4d\u7f6e\u662f?"
+      }, 
+      {
+        "domain": "restaurant_style", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#loc", 
+                4
+              ]
+            ], 
+            "act": "inform"
+          }
+        ], 
+        "conf": 0.99, 
+        "utt": "\u5728 \u5927\u8fde."
+      }, 
+      {
+        "domain": "restaurant_style", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": "\u5927\u8fde", 
+              "name": "#loc", 
+              "max_conf": 0.99
+            }, 
+            {
+              "max_val": null, 
+              "name": "#food_pref", 
+              "max_conf": 0.0
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#open", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#price", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#parking", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#food_pref", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "\u4f60\u559c\u6b22\u4ec0\u4e48\u70f9\u996a\u65b9\u5f0f"
+      }, 
+      {
+        "domain": "restaurant_style", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#food_pref", 
+                9
+              ]
+            ], 
+            "act": "inform"
+          }
+        ], 
+        "conf": 0.99, 
+        "utt": "\u58a8\u897f\u54e5."
+      }, 
+      {
+        "domain": "restaurant_style", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": "\u5927\u8fde", 
+              "name": "#loc", 
+              "max_conf": 0.99
+            }, 
+            {
+              "max_val": "\u58a8\u897f\u54e5", 
+              "name": "#food_pref", 
+              "max_conf": 0.99
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#open", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#price", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#parking", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              {
+                "#food_pref": "\u58a8\u897f\u54e5", 
+                "#loc": "\u5927\u8fde"
+              }, 
+              [
+                "#default"
+              ]
+            ], 
+            "act": "query"
+          }
+        ], 
+        "utt": "{\"QUERY\": {\"#food_pref\": \"\\u58a8\\u897f\\u54e5\", \"#loc\": \"\\u5927\\u8fde\"}, \"GOALS\": [\"#default\"]}"
+      }, 
+      {
+        "domain": "restaurant_style", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                [
+                  "#loc", 
+                  4
+                ], 
+                [
+                  "#food_pref", 
+                  9
+                ]
+              ], 
+              {
+                "#default": 93
+              }
+            ], 
+            "act": "kb_return"
+          }
+        ], 
+        "conf": 0.99, 
+        "utt": "{\"RET\": {\"#default\": \"93\"}}"
+      }, 
+      {
+        "domain": "restaurant_style", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": true, 
+          "usr_slots": [
+            {
+              "max_val": "\u5927\u8fde", 
+              "name": "#loc", 
+              "max_conf": 0.99
+            }, 
+            {
+              "max_val": "\u58a8\u897f\u54e5", 
+              "name": "#food_pref", 
+              "max_conf": 0.99
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": "93"
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#open", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#price", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#parking", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              {
+                "#default": "93"
+              }
+            ], 
+            "act": "inform"
+          }, 
+          {
+            "parameters": [
+              [
+                "#happy", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "\u6211\u67e5\u770b\u4e00\u4e0b\u6570\u636e\u5e93, 93 \u662f\u4e00\u4e2a\u4e0d\u9519\u7684\u9009\u62e9. \u8fd8\u6709\u5176\u4ed6\u80fd\u5e2e\u5230\u4f60\u7684\u4e48?"
+      }, 
+      {
+        "domain": "restaurant_style", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#default", 
+                null
+              ]
+            ], 
+            "act": "satisfy"
+          }, 
+          {
+            "parameters": [], 
+            "act": "goodbye"
+          }
+        ], 
+        "conf": 0.99, 
+        "utt": "\u90fd\u6b63\u786e. \u518d\u89c1."
+      }, 
+      {
+        "domain": "restaurant_style", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": "\u5927\u8fde", 
+              "name": "#loc", 
+              "max_conf": 0.99
+            }, 
+            {
+              "max_val": "\u58a8\u897f\u54e5", 
+              "name": "#food_pref", 
+              "max_conf": 0.99
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": true, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": "93"
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#open", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#price", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#parking", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [], 
+            "act": "goodbye"
+          }
+        ], 
+        "utt": "\u518d\u89c1."
+      }
+    ], 
+    [
+      {
+        "domain": "restaurant_style", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": null, 
+              "name": "#loc", 
+              "max_conf": 0.0
+            }, 
+            {
+              "max_val": null, 
+              "name": "#food_pref", 
+              "max_conf": 0.0
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.0, 
+              "name": "#default", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#open", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#price", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#parking", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [], 
+            "act": "greet"
+          }, 
+          {
+            "parameters": [
+              [
+                "#need", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "\u4f60\u597d\uff0c\u6211\u60f3\u627e\u4e00\u5bb6\u7528\u9910\u7684\u5730\u65b9 \u6709\u4ec0\u4e48\u5e2e\u5230\u4f60\u7684\u4e48?"
+      }, 
+      {
+        "domain": "restaurant_style", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [], 
+            "act": "greet"
+          }, 
+          {
+            "parameters": [
+              [
+                "#default", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "conf": 0.99, 
+        "utt": "Hi \u6211\u60f3\u8ba2\u4e00\u5bb6\u9152\u5e97."
+      }, 
+      {
+        "domain": "restaurant_style", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": null, 
+              "name": "#loc", 
+              "max_conf": 0.0
+            }, 
+            {
+              "max_val": null, 
+              "name": "#food_pref", 
+              "max_conf": 0.0
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#open", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#price", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#parking", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#loc", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "\u4f60\u73b0\u5728\u5728\u4ec0\u4e48\u5730\u65b9?"
+      }, 
+      {
+        "domain": "restaurant_style", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#loc", 
+                6
+              ]
+            ], 
+            "act": "inform"
+          }
+        ], 
+        "conf": 0.99, 
+        "utt": "\u5929\u6d25."
+      }, 
+      {
+        "domain": "restaurant_style", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": "\u5929\u6d25", 
+              "name": "#loc", 
+              "max_conf": 0.99
+            }, 
+            {
+              "max_val": null, 
+              "name": "#food_pref", 
+              "max_conf": 0.0
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#open", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#price", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#parking", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#food_pref", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "\u4f60\u559c\u6b22\u4ec0\u4e48\u70f9\u996a\u65b9\u5f0f"
+      }, 
+      {
+        "domain": "restaurant_style", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#food_pref", 
+                0
+              ]
+            ], 
+            "act": "inform"
+          }
+        ], 
+        "conf": 0.99, 
+        "utt": "\u6cf0\u56fd \u7684\u98df\u54c1."
+      }, 
+      {
+        "domain": "restaurant_style", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": "\u5929\u6d25", 
+              "name": "#loc", 
+              "max_conf": 0.99
+            }, 
+            {
+              "max_val": "\u6cf0\u56fd", 
+              "name": "#food_pref", 
+              "max_conf": 0.99
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#open", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#price", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#parking", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              {
+                "#food_pref": "\u6cf0\u56fd", 
+                "#loc": "\u5929\u6d25"
+              }, 
+              [
+                "#default"
+              ]
+            ], 
+            "act": "query"
+          }
+        ], 
+        "utt": "{\"QUERY\": {\"#food_pref\": \"\\u6cf0\\u56fd\", \"#loc\": \"\\u5929\\u6d25\"}, \"GOALS\": [\"#default\"]}"
+      }, 
+      {
+        "domain": "restaurant_style", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                [
+                  "#loc", 
+                  6
+                ], 
+                [
+                  "#food_pref", 
+                  0
+                ]
+              ], 
+              {
+                "#default": 10
+              }
+            ], 
+            "act": "kb_return"
+          }
+        ], 
+        "conf": 0.99, 
+        "utt": "{\"RET\": {\"#default\": \"10\"}}"
+      }, 
+      {
+        "domain": "restaurant_style", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": true, 
+          "usr_slots": [
+            {
+              "max_val": "\u5929\u6d25", 
+              "name": "#loc", 
+              "max_conf": 0.99
+            }, 
+            {
+              "max_val": "\u6cf0\u56fd", 
+              "name": "#food_pref", 
+              "max_conf": 0.99
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": "10"
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#open", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#price", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#parking", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              {
+                "#default": "10"
+              }
+            ], 
+            "act": "inform"
+          }, 
+          {
+            "parameters": [
+              [
+                "#happy", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "\u6211\u67e5\u770b\u4e00\u4e0b\u6570\u636e\u5e93, 10 \u662f\u4e00\u4e2a\u4e0d\u9519\u7684\u9009\u62e9. \u8fd8\u6709\u95ee\u9898\u4e48?"
+      }, 
+      {
+        "domain": "restaurant_style", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#default", 
+                null
+              ]
+            ], 
+            "act": "satisfy"
+          }, 
+          {
+            "parameters": [], 
+            "act": "goodbye"
+          }
+        ], 
+        "conf": 0.99, 
+        "utt": "\u6211\u60f3\u8981\u95ee\u7684\u90fd\u95ee\u5b8c\u4e86. \u5c31\u8fd9\u6837\u5427."
+      }, 
+      {
+        "domain": "restaurant_style", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": "\u5929\u6d25", 
+              "name": "#loc", 
+              "max_conf": 0.99
+            }, 
+            {
+              "max_val": "\u6cf0\u56fd", 
+              "name": "#food_pref", 
+              "max_conf": 0.99
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": true, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": "10"
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#open", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#price", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#parking", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [], 
+            "act": "goodbye"
+          }
+        ], 
+        "utt": "\u518d\u89c1."
+      }
+    ], 
+    [
+      {
+        "domain": "restaurant_style", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": null, 
+              "name": "#loc", 
+              "max_conf": 0.0
+            }, 
+            {
+              "max_val": null, 
+              "name": "#food_pref", 
+              "max_conf": 0.0
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.0, 
+              "name": "#default", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#open", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#price", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#parking", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [], 
+            "act": "greet"
+          }, 
+          {
+            "parameters": [
+              [
+                "#need", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "\u4f60\u597d\uff0c\u6211\u60f3\u627e\u4e00\u5bb6\u7528\u9910\u7684\u5730\u65b9 \u4f60\u9700\u8981\u4ec0\u4e48\u5e2e\u52a9\u4e48?"
+      }, 
+      {
+        "domain": "restaurant_style", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [], 
+            "act": "greet"
+          }, 
+          {
+            "parameters": [
+              [
+                "#default", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "conf": 0.99, 
+        "utt": "Hello \u673a\u5668\u4eba. \u6211\u5728\u627e\u4e00\u5bb6\u9152\u5e97."
+      }, 
+      {
+        "domain": "restaurant_style", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": null, 
+              "name": "#loc", 
+              "max_conf": 0.0
+            }, 
+            {
+              "max_val": null, 
+              "name": "#food_pref", 
+              "max_conf": 0.0
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#open", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#price", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#parking", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#loc", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "\u597d\u7684\uff0c\u4f60\u7684\u4f4d\u7f6e\u662f?"
+      }, 
+      {
+        "domain": "restaurant_style", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#loc", 
+                5
+              ]
+            ], 
+            "act": "inform"
+          }
+        ], 
+        "conf": 0.99, 
+        "utt": "\u5728 \u77f3\u5bb6\u5e84."
+      }, 
+      {
+        "domain": "restaurant_style", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": "\u77f3\u5bb6\u5e84", 
+              "name": "#loc", 
+              "max_conf": 0.99
+            }, 
+            {
+              "max_val": null, 
+              "name": "#food_pref", 
+              "max_conf": 0.0
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#open", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#price", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#parking", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#food_pref", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "\u4f60\u559c\u6b22\u4ec0\u4e48\u70f9\u996a\u65b9\u5f0f"
+      }, 
+      {
+        "domain": "restaurant_style", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#food_pref", 
+                5
+              ]
+            ], 
+            "act": "inform"
+          }
+        ], 
+        "conf": 0.99, 
+        "utt": "\u5370\u5ea6."
+      }, 
+      {
+        "domain": "restaurant_style", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": "\u77f3\u5bb6\u5e84", 
+              "name": "#loc", 
+              "max_conf": 0.99
+            }, 
+            {
+              "max_val": "\u5370\u5ea6", 
+              "name": "#food_pref", 
+              "max_conf": 0.99
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#open", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#price", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#parking", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              {
+                "#food_pref": "\u5370\u5ea6", 
+                "#loc": "\u77f3\u5bb6\u5e84"
+              }, 
+              [
+                "#default"
+              ]
+            ], 
+            "act": "query"
+          }
+        ], 
+        "utt": "{\"QUERY\": {\"#food_pref\": \"\\u5370\\u5ea6\", \"#loc\": \"\\u77f3\\u5bb6\\u5e84\"}, \"GOALS\": [\"#default\"]}"
+      }, 
+      {
+        "domain": "restaurant_style", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                [
+                  "#loc", 
+                  5
+                ], 
+                [
+                  "#food_pref", 
+                  5
+                ]
+              ], 
+              {
+                "#default": 36
+              }
+            ], 
+            "act": "kb_return"
+          }
+        ], 
+        "conf": 0.99, 
+        "utt": "{\"RET\": {\"#default\": \"36\"}}"
+      }, 
+      {
+        "domain": "restaurant_style", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": true, 
+          "usr_slots": [
+            {
+              "max_val": "\u77f3\u5bb6\u5e84", 
+              "name": "#loc", 
+              "max_conf": 0.99
+            }, 
+            {
+              "max_val": "\u5370\u5ea6", 
+              "name": "#food_pref", 
+              "max_conf": 0.99
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": "36"
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#open", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#price", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#parking", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              {
+                "#default": "36"
+              }
+            ], 
+            "act": "inform"
+          }, 
+          {
+            "parameters": [
+              [
+                "#happy", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "\u6211\u67e5\u770b\u4e00\u4e0b\u6570\u636e\u5e93, 36 \u662f\u4e00\u4e2a\u4e0d\u9519\u7684\u9009\u62e9. \u4f60\u5bf9\u56de\u7b54\u5185\u5bb9\u6ee1\u610f\u4e48?"
+      }, 
+      {
+        "domain": "restaurant_style", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#default", 
+                null
+              ]
+            ], 
+            "act": "more_request"
+          }, 
+          {
+            "parameters": [
+              [
+                "#price", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "conf": 0.99, 
+        "utt": "\u518d\u95ee\u4e00\u4e0b. \u90a3\u91cc\u7684\u5e73\u5747\u4ef7\u4f4d\u662f?"
+      }, 
+      {
+        "domain": "restaurant_style", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": "\u77f3\u5bb6\u5e84", 
+              "name": "#loc", 
+              "max_conf": 0.99
+            }, 
+            {
+              "max_val": "\u5370\u5ea6", 
+              "name": "#food_pref", 
+              "max_conf": 0.99
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": true, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": "36"
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#open", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.19, 
+              "name": "#price", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#parking", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              {
+                "#food_pref": "\u5370\u5ea6", 
+                "#loc": "\u77f3\u5bb6\u5e84"
+              }, 
+              [
+                "#price"
+              ]
+            ], 
+            "act": "query"
+          }
+        ], 
+        "utt": "{\"QUERY\": {\"#food_pref\": \"\\u5370\\u5ea6\", \"#loc\": \"\\u77f3\\u5bb6\\u5e84\"}, \"GOALS\": [\"#price\"]}"
+      }, 
+      {
+        "domain": "restaurant_style", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                [
+                  "#loc", 
+                  5
+                ], 
+                [
+                  "#food_pref", 
+                  5
+                ]
+              ], 
+              {
+                "#price": 1
+              }
+            ], 
+            "act": "kb_return"
+          }
+        ], 
+        "conf": 0.99, 
+        "utt": "{\"RET\": {\"#price\": \"\\u5e73\\u4ef7\"}}"
+      }, 
+      {
+        "domain": "restaurant_style", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": true, 
+          "usr_slots": [
+            {
+              "max_val": "\u77f3\u5bb6\u5e84", 
+              "name": "#loc", 
+              "max_conf": 0.99
+            }, 
+            {
+              "max_val": "\u5370\u5ea6", 
+              "name": "#food_pref", 
+              "max_conf": 0.99
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": true, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": "36"
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#open", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.19, 
+              "name": "#price", 
+              "value": "\u5e73\u4ef7"
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#parking", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              {
+                "#price": "\u5e73\u4ef7"
+              }
+            ], 
+            "act": "inform"
+          }, 
+          {
+            "parameters": [
+              [
+                "#happy", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "\u90a3\u91cc\u63d0\u4f9b \u5e73\u4ef7 \u7684\u98df\u7269. \u4f60\u5bf9\u56de\u7b54\u5185\u5bb9\u6ee1\u610f\u4e48?"
+      }, 
+      {
+        "domain": "restaurant_style", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#price", 
+                null
+              ]
+            ], 
+            "act": "more_request"
+          }, 
+          {
+            "parameters": [
+              [
+                "#parking", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "conf": 0.99, 
+        "utt": "\u7b49\u7b49,\u8fd8\u6709\u4e00\u4e2a\u95ee\u9898. \u5b83\u63d0\u4f9b\u4ec0\u4e48\u505c\u8f66\u670d\u52a1?."
+      }, 
+      {
+        "domain": "restaurant_style", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": "\u77f3\u5bb6\u5e84", 
+              "name": "#loc", 
+              "max_conf": 0.99
+            }, 
+            {
+              "max_val": "\u5370\u5ea6", 
+              "name": "#food_pref", 
+              "max_conf": 0.99
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": true, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": "36"
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#open", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": true, 
+              "conf": 1.19, 
+              "name": "#price", 
+              "value": "\u5e73\u4ef7"
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.19, 
+              "name": "#parking", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              {
+                "#food_pref": "\u5370\u5ea6", 
+                "#loc": "\u77f3\u5bb6\u5e84"
+              }, 
+              [
+                "#parking"
+              ]
+            ], 
+            "act": "query"
+          }
+        ], 
+        "utt": "{\"QUERY\": {\"#food_pref\": \"\\u5370\\u5ea6\", \"#loc\": \"\\u77f3\\u5bb6\\u5e84\"}, \"GOALS\": [\"#parking\"]}"
+      }, 
+      {
+        "domain": "restaurant_style", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                [
+                  "#loc", 
+                  5
+                ], 
+                [
+                  "#food_pref", 
+                  5
+                ]
+              ], 
+              {
+                "#parking": 0
+              }
+            ], 
+            "act": "kb_return"
+          }
+        ], 
+        "conf": 0.99, 
+        "utt": "{\"RET\": {\"#parking\": \"\\u8def\\u8fb9\\u505c\\u8f66\\u4f4d\"}}"
+      }, 
+      {
+        "domain": "restaurant_style", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": true, 
+          "usr_slots": [
+            {
+              "max_val": "\u77f3\u5bb6\u5e84", 
+              "name": "#loc", 
+              "max_conf": 0.99
+            }, 
+            {
+              "max_val": "\u5370\u5ea6", 
+              "name": "#food_pref", 
+              "max_conf": 0.99
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": true, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": "36"
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#open", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": true, 
+              "conf": 1.19, 
+              "name": "#price", 
+              "value": "\u5e73\u4ef7"
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.19, 
+              "name": "#parking", 
+              "value": "\u8def\u8fb9\u505c\u8f66\u4f4d"
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              {
+                "#parking": "\u8def\u8fb9\u505c\u8f66\u4f4d"
+              }
+            ], 
+            "act": "inform"
+          }, 
+          {
+            "parameters": [
+              [
+                "#happy", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "\u505c\u8f66\u4f4d\u662f \u8def\u8fb9\u505c\u8f66\u4f4d. \u4f60\u5bf9\u56de\u7b54\u5185\u5bb9\u6ee1\u610f\u4e48?"
+      }, 
+      {
+        "domain": "restaurant_style", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#parking", 
+                null
+              ]
+            ], 
+            "act": "satisfy"
+          }, 
+          {
+            "parameters": [], 
+            "act": "goodbye"
+          }
+        ], 
+        "conf": 0.99, 
+        "utt": "\u6211\u60f3\u8981\u95ee\u7684\u90fd\u95ee\u5b8c\u4e86. \u518d\u89c1."
+      }, 
+      {
+        "domain": "restaurant_style", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": "\u77f3\u5bb6\u5e84", 
+              "name": "#loc", 
+              "max_conf": 0.99
+            }, 
+            {
+              "max_val": "\u5370\u5ea6", 
+              "name": "#food_pref", 
+              "max_conf": 0.99
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": true, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": "36"
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#open", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": true, 
+              "conf": 1.19, 
+              "name": "#price", 
+              "value": "\u5e73\u4ef7"
+            }, 
+            {
+              "expected": null, 
+              "delivered": true, 
+              "conf": 1.19, 
+              "name": "#parking", 
+              "value": "\u8def\u8fb9\u505c\u8f66\u4f4d"
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [], 
+            "act": "goodbye"
+          }
+        ], 
+        "utt": "\u56de\u89c1."
+      }
+    ], 
+    [
+      {
+        "domain": "restaurant_style", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": null, 
+              "name": "#loc", 
+              "max_conf": 0.0
+            }, 
+            {
+              "max_val": null, 
+              "name": "#food_pref", 
+              "max_conf": 0.0
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.0, 
+              "name": "#default", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#open", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#price", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#parking", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [], 
+            "act": "greet"
+          }, 
+          {
+            "parameters": [
+              [
+                "#need", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "\u4f60\u597d\uff0c\u6211\u60f3\u627e\u4e00\u5bb6\u7528\u9910\u7684\u5730\u65b9 \u6709\u4ec0\u4e48\u5e2e\u5230\u4f60\u7684\u4e48?"
+      }, 
+      {
+        "domain": "restaurant_style", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [], 
+            "act": "greet"
+          }, 
+          {
+            "parameters": [
+              [
+                "#default", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "conf": 0.99, 
+        "utt": "Hi \u6211\u5728\u627e\u4e00\u5bb6\u9152\u5e97."
+      }, 
+      {
+        "domain": "restaurant_style", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": null, 
+              "name": "#loc", 
+              "max_conf": 0.0
+            }, 
+            {
+              "max_val": null, 
+              "name": "#food_pref", 
+              "max_conf": 0.0
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#open", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#price", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#parking", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#loc", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "\u597d\u7684\uff0c\u4f60\u7684\u4f4d\u7f6e\u662f?"
+      }, 
+      {
+        "domain": "restaurant_style", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#loc", 
+                3
+              ]
+            ], 
+            "act": "inform"
+          }
+        ], 
+        "conf": 0.99, 
+        "utt": "\u5728 \u9752\u5c9b."
+      }, 
+      {
+        "domain": "restaurant_style", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": "\u9752\u5c9b", 
+              "name": "#loc", 
+              "max_conf": 0.99
+            }, 
+            {
+              "max_val": null, 
+              "name": "#food_pref", 
+              "max_conf": 0.0
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#open", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#price", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#parking", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#food_pref", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "\u4f60\u559c\u6b22\u4ec0\u4e48\u70f9\u996a\u65b9\u5f0f"
+      }, 
+      {
+        "domain": "restaurant_style", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#food_pref", 
+                8
+              ]
+            ], 
+            "act": "inform"
+          }
+        ], 
+        "conf": 0.99, 
+        "utt": "\u5ddd \u7684\u98df\u54c1."
+      }, 
+      {
+        "domain": "restaurant_style", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": "\u9752\u5c9b", 
+              "name": "#loc", 
+              "max_conf": 0.99
+            }, 
+            {
+              "max_val": "\u5ddd", 
+              "name": "#food_pref", 
+              "max_conf": 0.99
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#open", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#price", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#parking", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              {
+                "#food_pref": "\u5ddd", 
+                "#loc": "\u9752\u5c9b"
+              }, 
+              [
+                "#default"
+              ]
+            ], 
+            "act": "query"
+          }
+        ], 
+        "utt": "{\"QUERY\": {\"#food_pref\": \"\\u5ddd\", \"#loc\": \"\\u9752\\u5c9b\"}, \"GOALS\": [\"#default\"]}"
+      }, 
+      {
+        "domain": "restaurant_style", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                [
+                  "#loc", 
+                  3
+                ], 
+                [
+                  "#food_pref", 
+                  8
+                ]
+              ], 
+              {
+                "#default": 40
+              }
+            ], 
+            "act": "kb_return"
+          }
+        ], 
+        "conf": 0.99, 
+        "utt": "{\"RET\": {\"#default\": \"40\"}}"
+      }, 
+      {
+        "domain": "restaurant_style", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": true, 
+          "usr_slots": [
+            {
+              "max_val": "\u9752\u5c9b", 
+              "name": "#loc", 
+              "max_conf": 0.99
+            }, 
+            {
+              "max_val": "\u5ddd", 
+              "name": "#food_pref", 
+              "max_conf": 0.99
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": "40"
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#open", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#price", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#parking", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              {
+                "#default": "40"
+              }
+            ], 
+            "act": "inform"
+          }, 
+          {
+            "parameters": [
+              [
+                "#happy", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "\u6211\u67e5\u770b\u4e00\u4e0b\u6570\u636e\u5e93, 40 \u662f\u4e00\u4e2a\u4e0d\u9519\u7684\u9009\u62e9. \u8fd8\u6709\u95ee\u9898\u4e48?"
+      }, 
+      {
+        "domain": "restaurant_style", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#default", 
+                null
+              ]
+            ], 
+            "act": "satisfy"
+          }, 
+          {
+            "parameters": [], 
+            "act": "goodbye"
+          }
+        ], 
+        "conf": 0.99, 
+        "utt": "\u6ca1\u6709\u95ee\u9898\u4e86. \u5c31\u8fd9\u6837\u5427."
+      }, 
+      {
+        "domain": "restaurant_style", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": "\u9752\u5c9b", 
+              "name": "#loc", 
+              "max_conf": 0.99
+            }, 
+            {
+              "max_val": "\u5ddd", 
+              "name": "#food_pref", 
+              "max_conf": 0.99
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": true, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": "40"
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#open", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#price", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#parking", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [], 
+            "act": "goodbye"
+          }
+        ], 
+        "utt": "\u56de\u89c1."
+      }
+    ], 
+    [
+      {
+        "domain": "restaurant_style", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": null, 
+              "name": "#loc", 
+              "max_conf": 0.0
+            }, 
+            {
+              "max_val": null, 
+              "name": "#food_pref", 
+              "max_conf": 0.0
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.0, 
+              "name": "#default", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#open", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#price", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#parking", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [], 
+            "act": "greet"
+          }, 
+          {
+            "parameters": [
+              [
+                "#need", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "\u4f60\u597d\uff0c\u6211\u60f3\u627e\u4e00\u5bb6\u7528\u9910\u7684\u5730\u65b9 \u6709\u4ec0\u4e48\u5e2e\u5230\u4f60\u7684\u4e48?"
+      }, 
+      {
+        "domain": "restaurant_style", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [], 
+            "act": "greet"
+          }, 
+          {
+            "parameters": [
+              [
+                "#default", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "conf": 0.99, 
+        "utt": "Hello \u673a\u5668\u4eba. \u63a8\u8350\u4e00\u4e2a\u5403\u996d\u7684\u5730\u65b9\u5427."
+      }, 
+      {
+        "domain": "restaurant_style", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": null, 
+              "name": "#loc", 
+              "max_conf": 0.0
+            }, 
+            {
+              "max_val": null, 
+              "name": "#food_pref", 
+              "max_conf": 0.0
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#open", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#price", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#parking", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#loc", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "\u597d\u7684\uff0c\u4f60\u7684\u4f4d\u7f6e\u662f?"
+      }, 
+      {
+        "domain": "restaurant_style", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#loc", 
+                0
+              ]
+            ], 
+            "act": "inform"
+          }
+        ], 
+        "conf": 0.99, 
+        "utt": "\u5728 \u4e0a\u6d77."
+      }, 
+      {
+        "domain": "restaurant_style", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": "\u4e0a\u6d77", 
+              "name": "#loc", 
+              "max_conf": 0.99
+            }, 
+            {
+              "max_val": null, 
+              "name": "#food_pref", 
+              "max_conf": 0.0
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#open", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#price", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#parking", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#food_pref", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "\u4f60\u559c\u6b22\u4ec0\u4e48\u70f9\u996a\u65b9\u5f0f"
+      }, 
+      {
+        "domain": "restaurant_style", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#food_pref", 
+                9
+              ]
+            ], 
+            "act": "inform"
+          }
+        ], 
+        "conf": 0.99, 
+        "utt": "\u58a8\u897f\u54e5."
+      }, 
+      {
+        "domain": "restaurant_style", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": "\u4e0a\u6d77", 
+              "name": "#loc", 
+              "max_conf": 0.99
+            }, 
+            {
+              "max_val": "\u58a8\u897f\u54e5", 
+              "name": "#food_pref", 
+              "max_conf": 0.99
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#open", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#price", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#parking", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              {
+                "#food_pref": "\u58a8\u897f\u54e5", 
+                "#loc": "\u4e0a\u6d77"
+              }, 
+              [
+                "#default"
+              ]
+            ], 
+            "act": "query"
+          }
+        ], 
+        "utt": "{\"QUERY\": {\"#food_pref\": \"\\u58a8\\u897f\\u54e5\", \"#loc\": \"\\u4e0a\\u6d77\"}, \"GOALS\": [\"#default\"]}"
+      }, 
+      {
+        "domain": "restaurant_style", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                [
+                  "#loc", 
+                  0
+                ], 
+                [
+                  "#food_pref", 
+                  9
+                ]
+              ], 
+              {
+                "#default": 46
+              }
+            ], 
+            "act": "kb_return"
+          }
+        ], 
+        "conf": 0.99, 
+        "utt": "{\"RET\": {\"#default\": \"46\"}}"
+      }, 
+      {
+        "domain": "restaurant_style", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": true, 
+          "usr_slots": [
+            {
+              "max_val": "\u4e0a\u6d77", 
+              "name": "#loc", 
+              "max_conf": 0.99
+            }, 
+            {
+              "max_val": "\u58a8\u897f\u54e5", 
+              "name": "#food_pref", 
+              "max_conf": 0.99
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": "46"
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#open", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#price", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#parking", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              {
+                "#default": "46"
+              }
+            ], 
+            "act": "inform"
+          }, 
+          {
+            "parameters": [
+              [
+                "#happy", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "\u6211\u67e5\u770b\u4e00\u4e0b\u6570\u636e\u5e93, 46 \u662f\u4e00\u4e2a\u4e0d\u9519\u7684\u9009\u62e9. \u4f60\u5bf9\u56de\u7b54\u5185\u5bb9\u6ee1\u610f\u4e48?"
+      }, 
+      {
+        "domain": "restaurant_style", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#default", 
+                null
+              ]
+            ], 
+            "act": "satisfy"
+          }, 
+          {
+            "parameters": [], 
+            "act": "goodbye"
+          }
+        ], 
+        "conf": 0.99, 
+        "utt": "\u90fd\u6b63\u786e. \u5c31\u8fd9\u6837\u5427."
+      }, 
+      {
+        "domain": "restaurant_style", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": "\u4e0a\u6d77", 
+              "name": "#loc", 
+              "max_conf": 0.99
+            }, 
+            {
+              "max_val": "\u58a8\u897f\u54e5", 
+              "name": "#food_pref", 
+              "max_conf": 0.99
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": true, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": "46"
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#open", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#price", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#parking", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [], 
+            "act": "goodbye"
+          }
+        ], 
+        "utt": "\u56de\u89c1."
+      }
+    ]
+  ]
+}

@@ -1,3 +1,4 @@
+#-*-encoding:utf-8-*-
 import numpy as np
 import logging
 
@@ -6,14 +7,16 @@ class Database(object):
     """
     A table-based database class. Each row is an entry and each column is an attribute. Each attribute
     has vocabulary size called modality.
-    
-    :ivar usr_dirichlet_priors: the prior for each attribute : 2D list [[]*modality]
-    :ivar num_usr_slots: the number of columns: Int
-    :ivar usr_modalities: the vocab size of each column : List
-    :ivar usr_pdf: the PDF for each columns : 2D list
-    :ivar num_rows: the number of entries
+
+    一个基于table的数据库类，每行是一个 entry  它的每一列是它可以取的属性值，每一个每一个属性值存储一个字典长度
+
+    :ivar usr_dirichlet_priors: the prior for each attribute : 2D list [[]*modality]  每个属性值的 狄里克莱先验分布值
+    :ivar num_usr_slots: the number of columns: Int                                   用户的slot 个数 就是 column的个数
+    :ivar usr_modalities: the vocab size of each column : List                        每个colum的词典长度
+    :ivar usr_pdf: the PDF for each columns : 2D list                                 每个 colum 的分布
+    :ivar num_rows: the number of entries                                             entries的个数
     :ivar table: the content : 2D list [[] *num_rows]
-    :ivar indexes: for efficient SELECT : [{attribute_word -> corresponding rows}]
+    :ivar indexes: for efficient SELECT : [{attribute_word -> corresponding rows}]    索引字典 attribute word -> 对应的 rows
     """
 
     logger = logging.getLogger(__name__)
@@ -77,11 +80,11 @@ class Database(object):
     def select(self, query, return_index=False):
         """
         Filter the database entries according the query.
-        
+
         :param query: 1D [] equal to the number of attributes, None means don't care
         :param return_index: if return the db index
         :return return a list system_entries and (optional)index that satisfy all constrains
-        
+
         """
         valid_idx = set(range(self.num_rows))
         for q, a_id in zip(query, range(self.num_usr_slots)):
@@ -97,7 +100,7 @@ class Database(object):
 
     def pprint(self):
         """
-        print statistics of the database in a beautiful format. 
+        print statistics of the database in a beautiful format.
         """
 
         self.logger.info("DB contains %d rows (%d unique ones), with %d attributes"

@@ -12,19 +12,19 @@ class BeliefSlot(object):
     """
     A slot with a probabilistic distribution over the possible values
     槽位在各个曹值上的概率分布
-    
+
     :ivar value_map: entity_value -> (score, norm_value)
     :ivar last_update_turn: the last turn ID this slot is modified
     :ivar uid: the unique ID, i.e. slot name
     """
 
-    EXPLICIT_THRESHOLD = 0.2
-    IMPLICIT_THRESHOLD = 0.6
-    GROUND_THRESHOLD = 0.95
+    EXPLICIT_THRESHOLD = 0.2            # 需要显式澄清的阈值
+    IMPLICIT_THRESHOLD = 0.6            # 需要隐式澄清的阈值
+    GROUND_THRESHOLD = 0.95             # 基础阈值
 
     def __init__(self, uid, vocabulary):
         self.uid = uid
-        self.value_map = {}
+        self.value_map = {}             # 槽位值的map key： slot_val   value: prob
         self.last_update_turn = -1
         self.logger = logging.getLogger(__name__)
 
@@ -56,12 +56,12 @@ class BeliefSlot(object):
                 grounded_value = self.get_maxconf_value()
             else:
                 grounded_value = target_value
-                
+
             # 更新slot 最有可能的值的 conf
-            up_conf = confirm_conf * (1.0 - self.EXPLICIT_THRESHOLD)
-            down_conf = disconfirm_conf * (1.0 - self.EXPLICIT_THRESHOLD)
+            up_conf = confirm_conf * (1.0 - self.EXPLICIT_THRESHOLD)        # 对曹值的确认概率增益
+            down_conf = disconfirm_conf * (1.0 - self.EXPLICIT_THRESHOLD)   # 对曹值的不确定概率增益
             old_conf = self.value_map[grounded_value]
-            new_conf = max(0.0, min((old_conf + up_conf - down_conf), 1.5))
+            new_conf = max(0.0, min((old_conf + up_conf - down_conf), 1.5))   # 旧的置信 + 确认增益 - 不确定增益
             self.value_map[grounded_value] = new_conf
             self.logger.info(
                 "Ground %s from %f to %f at turn %d" % (grounded_value, old_conf, new_conf, turn_id))
@@ -69,6 +69,9 @@ class BeliefSlot(object):
             self.logger.warn("Warn an concept without value")
 
     def get_maxconf_value(self):
+        '''
+        获取置信最大的槽位
+        '''
         if len(self.value_map) == 0:
             return None
         max_s, max_v = max([(s, v) for v, s in self.value_map.items()])
@@ -76,7 +79,8 @@ class BeliefSlot(object):
 
     def max_conf(self):
         """
-        :return: the highest confidence of all potential values. 0.0 if its empty 
+        获取最大的置信度
+        :return: the highest confidence of all potential values. 0.0 if its empty
         """
         if len(self.value_map) == 0:
             return 0.0
@@ -96,16 +100,19 @@ class BeliefGoal(object):
     def __init__(self, uid, conf=0.0):
         self.uid = uid
         self.conf = conf
-        self.delivered = False
-        self.value = None
-        self.expected_value = None
+        self.delivered = False        # 是否告诉用户了
+        self.value = None             # 当前值
+        self.expected_value = None    # 期望值
 
     def add_observation(self, conf, expected_value):
-        # 根据观测更新置信 最大值基础上加0.2
-        self.conf = max(conf, self.conf) + 0.2     
+        # 根据观测更新置信 最大值基础上加0.2，更新期望值的置信概率
+        self.conf = max(conf, self.conf) + 0.2
         self.expected_value = expected_value
 
     def get_conf(self):
+        '''
+        获取置信
+        '''
         return self.conf
 
     def deliver(self):
@@ -122,11 +129,11 @@ class DialogState(State):
     The dialog state class for a system
     dm的状态跟踪类
 
-    :ivar history: the raw dialog history
-    :ivar spk_state: the FSM state for turn-taking. SPK, LISTEN or EXIT       
+    :ivar history: the raw dialog history                                            对话历史
+    :ivar spk_state: the FSM state for turn-taking. SPK, LISTEN or EXIT              agent的状态
     :ivar valid_entries: a list of valid system entries satisfy the user belief
-    :ivar usr_beliefs: a dict of slot name -> BeliefSlot()
-    :ivar sys_goals:  a dict of system goal that is obligated to answer
+    :ivar usr_beliefs: a dict of slot name -> BeliefSlot()                           user slot 的置信
+    :ivar sys_goals:  a dict of system goal that is obligated to answer              需要回答的sys goal列表
     """
     INFORM_THRESHOLD = 5
 
@@ -156,6 +163,9 @@ class DialogState(State):
         return query
 
     def has_pending_return(self):
+        '''
+        是否将用户的约束附加到return上
+        '''
         return self.pending_return is not None
 
     def ready_to_inform(self):
@@ -186,6 +196,9 @@ class DialogState(State):
         return self.spk_state == State.EXIT
 
     def reset_sys_goals(self):
+        '''
+        清空goals
+        '''
         for goal in self.sys_goals.values():
             goal.clear()
         self.sys_goals[BaseSysSlot.DEFAULT] = BeliefGoal(BaseSysSlot.DEFAULT, conf=1.0)
@@ -239,23 +252,24 @@ class System(Agent):
         """
         Update the dialog state given system's action in a new turn
         根据最新一轮的用户动作更新DM的状态
-    
+
         :param usr_actions: a list of system action, None if no action
         :param conf: float [0, 1] confidence of the parsing
         """
         if usr_actions is None or len(usr_actions) == 0:
             return
 
-        self.state.update_history(self.state.USR, usr_actions)
-        self.state.spk_state = DialogState.SPEAK
+        self.state.update_history(self.state.USR, usr_actions)      # 更新历史信息
+        self.state.spk_state = DialogState.SPEAK                    # 更新对话状态
 
+        # 遍历用户动作列表
         for action in usr_actions:
             # check for user confirm/disconfirm
             # 当前用户的动作是 CONFIRM ，那么更新 user slot 的最可能的value的置信
             if action.act == UserAct.CONFIRM:
                 slot, _ = action.parameters[0]
                 self.state.usr_beliefs[slot].add_grounding(conf, 1.0 - conf, self.state.turn_id())
-            # 当前用户的动作是 CONFIRM ，那么更新 user slot 的最可能的value的置信，概率跟上面的情况相反
+            # 当前用户的动作是 DISCONFIRM ，那么更新 user slot 的最可能的value的置信，概率跟上面的情况相反
             elif action.act == UserAct.DISCONFIRM:
                 slot, _ = action.parameters[0]
                 self.state.usr_beliefs[slot].add_grounding(1.0 - conf, conf, self.state.turn_id())
@@ -263,7 +277,7 @@ class System(Agent):
             elif action.act == UserAct.INFORM:
                 slot, value = action.parameters[0]
                 self.state.usr_beliefs[slot].add_new_observation(value, conf, self.state.turn_id())
-            # 当前用户的动作是REQUEST 那么 这个slot是系统槽位，更新观测conf
+            # 当前用户的动作是REQUEST 那么 这个slot是系统槽位，更新要返回的goal的置信
             elif action.act == UserAct.REQUEST:
                 slot, _ = action.parameters[0]
                 self.state.sys_goals[slot].add_observation(conf, None)
@@ -271,14 +285,14 @@ class System(Agent):
             elif action.act == UserAct.NEW_SEARCH:
                 self.state.reset_sys_goals()
                 self.state.reset_slots()
-                
+
             # 当前用户的动作是 yes or no 问题
             elif action.act == UserAct.YN_QUESTION:
                 # 获取用户认为的 goal slot 的值
                 slot, value = action.parameters[0]
                 # 更新goals的置信
                 self.state.sys_goals[slot].add_observation(conf, value)
-            # 如果当前用户满意sys goal slot的值，那么标注sys goal 是已经发出的
+            # 如果当前用户满意sys goal slot的值，那么标注sys goal 是已经发出，被用户接受了的
             elif action.act == UserAct.SATISFY or action.act == UserAct.MORE_REQUEST:
                 for para, _ in action.parameters:
                     self.state.sys_goals[para].deliver()
@@ -325,7 +339,8 @@ class System(Agent):
                 return Action(SystemAct.GOODBYE)
 
         if self.state.has_pending_return():
-            # system goal
+            # 将数据查询的约束slot名值对就是query
+            # 将它放在goal slot 名值对 之前返回给用户
             query = self.state.pending_return
             goals = {}
             for goal in self.state.sys_goals.values():
@@ -340,6 +355,7 @@ class System(Agent):
 
         # check if it's ready to inform
         elif self.state.ready_to_inform():
+            # 如果当前已经可以告诉用户了那么
             # INFORM + {slot -> usr_constrain} + {goal: goal_value}
             # user constrains
             query = [(key, slot.get_maxconf_value()) for key, slot in self.state.usr_beliefs.items()]
@@ -356,6 +372,8 @@ class System(Agent):
             implicit_confirms = []
             exp_confirms = []
             requests = []
+
+            # 根据槽位状态跟踪信息对slot进行分组
             for slot in self.state.usr_beliefs.values():
                 if slot.max_conf() < slot.EXPLICIT_THRESHOLD:
                     exp_confirms.append(Action(SystemAct.REQUEST, (slot.uid, None)))
@@ -373,6 +391,7 @@ class System(Agent):
                 actions.extend(implicit_confirms + exp_confirms[0:1])
                 return actions
             elif len(requests) > 0:
+                # 显示澄清
                 actions.extend(implicit_confirms + requests[0:1])
                 return actions
             else:

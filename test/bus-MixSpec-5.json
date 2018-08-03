@@ -1,0 +1,5347 @@
+{
+  "meta": {
+    "name": "bus", 
+    "usr_slots": [
+      [
+        "from_loc", 
+        "departure place", 
+        [
+          "\u5317\u571f\u57ce", 
+          "\u5317\u5927", 
+          "\u516d\u91cc\u6865", 
+          "\u6d77\u6dc0\u9ec4\u5e84", 
+          "\u82cf\u5dde\u8857", 
+          "\u897f\u4e8c\u65d7", 
+          "\u671b\u4eac", 
+          "\u5317\u4eac\u5357\u7ad9", 
+          "\u78c1\u5668\u53e3", 
+          "\u897f\u5355", 
+          "\u56fd\u8d38", 
+          "\u738b\u5e9c\u4e95"
+        ]
+      ], 
+      [
+        "to_loc", 
+        "arrival place", 
+        [
+          "\u5317\u571f\u57ce", 
+          "\u5317\u5927", 
+          "\u516d\u91cc\u6865", 
+          "\u6d77\u6dc0\u9ec4\u5e84", 
+          "\u82cf\u5dde\u8857", 
+          "\u897f\u4e8c\u65d7", 
+          "\u671b\u4eac", 
+          "\u5317\u4eac\u5357\u7ad9", 
+          "\u78c1\u5668\u53e3", 
+          "\u897f\u5355", 
+          "\u56fd\u8d38", 
+          "\u738b\u5e9c\u4e95"
+        ]
+      ], 
+      [
+        "datetime", 
+        "leaving time", 
+        [
+          "\u4eca\u5929", 
+          "\u660e\u5929", 
+          "\u4eca\u665a", 
+          "\u4eca\u5929\u65e9\u6668", 
+          "\u4eca\u5929\u4e2d\u5348", 
+          "1", 
+          "2", 
+          "3", 
+          "4", 
+          "5", 
+          "6", 
+          "7", 
+          "8", 
+          "9", 
+          "10", 
+          "11", 
+          "12", 
+          "13", 
+          "14", 
+          "15", 
+          "16", 
+          "17", 
+          "18", 
+          "19", 
+          "20", 
+          "21", 
+          "22", 
+          "23", 
+          "24"
+        ]
+      ]
+    ], 
+    "sys_slots": [
+      [
+        "arrive_in", 
+        "how soon it arrives", 
+        [
+          "0", 
+          "5", 
+          "10", 
+          "15", 
+          "20", 
+          "25"
+        ]
+      ], 
+      [
+        "duration", 
+        "how long it takes", 
+        [
+          "0", 
+          "5", 
+          "10", 
+          "15", 
+          "20", 
+          "25", 
+          "30", 
+          "35", 
+          "40", 
+          "45", 
+          "50", 
+          "55"
+        ]
+      ]
+    ], 
+    "greet": "\u4f60\u53ef\u4ee5\u95ee\u6211\u516c\u4ea4\u8f66\u7684\u4fe1\u606f.", 
+    "nlg_spec": {
+      "default": {
+        "inform": [
+          "%s \u516c\u4ea4\u8f66\u53ef\u4ee5\u5e26\u4f60\u53bb\u90a3\u91cc."
+        ], 
+        "request": [
+          "\u6211\u8981\u67e5\u8be2\u516c\u4ea4\u4fe1\u606f.", 
+          "\u6211\u8981\u627e\u4e00\u8f86\u516c\u4ea4\u8f66.", 
+          "\u63a8\u8350\u4e00\u8f86\u516c\u4ea4\u8f66\u5427."
+        ]
+      }, 
+      "datetime": {
+        "inform": [
+          "\u5728 %s.", 
+          "%s.", 
+          "\u6211 %s \u51fa\u53d1.", 
+          "\u51fa\u53d1\u65f6\u95f4\u662f %s."
+        ], 
+        "request": [
+          "\u4f60\u4ec0\u4e48\u65f6\u5019\u51fa\u53d1?", 
+          "\u4f60\u9700\u8981\u4ec0\u4e48\u65f6\u95f4\u6bb5\u7684\u516c\u4ea4\u8f66?"
+        ]
+      }, 
+      "arrive_in": {
+        "inform": [
+          "\u90a3\u4e2a\u516c\u4ea4\u8f66\u5728 %s \u5206\u5185\u5230\u8fbe.", 
+          "\u7b49\u8f66\u7528\u65f6 %s \u5206\u949f.", 
+          "\u5728 %s \u5206\u5185\u5230\u8fbe"
+        ], 
+        "request": [
+          "\u591a\u957f\u65f6\u95f4\u5230\u8fbe?", 
+          "\u6211\u9700\u8981\u7b49\u5f85\u591a\u957f\u65f6\u95f4?", 
+          "\u4f30\u8ba1\u9700\u8981\u591a\u957f\u65f6\u95f4"
+        ], 
+        "yn_question": {
+          "0": [
+            "\u7b49\u5f85\u65f6\u95f4\u77ed\u4e48?"
+          ], 
+          "5": [
+            "\u7b49\u5f85\u65f6\u95f4\u77ed\u4e48?"
+          ], 
+          "10": [
+            "\u7b49\u5f85\u65f6\u95f4\u77ed\u4e48?"
+          ], 
+          "15": [
+            "\u7b49\u5f85\u65f6\u95f4\u77ed\u4e48?"
+          ], 
+          "20": [
+            "\u4f1a\u7b49\u7684\u5f88\u957f\u4e48?"
+          ], 
+          "25": [
+            "\u4f1a\u7b49\u7684\u5f88\u957f\u4e48?"
+          ]
+        }
+      }, 
+      "duration": {
+        "inform": [
+          "\u8def\u7a0b\u8017\u65f6 %s \u5206.", 
+          "\u65c5\u7a0b\u65f6\u95f4\u662f %s \u5206\u949f."
+        ], 
+        "request": [
+          "\u8def\u4e0a\u7528\u65f6\u591a\u957f?.", 
+          "\u7528\u591a\u957f\u65f6\u95f4\u5230\u8fbe\u76ee\u7684\u5730?"
+        ], 
+        "yn_question": {
+          "0": [
+            "\u8def\u7a0b\u8017\u65f6\u77ed\u4e48?"
+          ], 
+          "35": [
+            "\u8def\u7a0b\u8017\u65f6\u957f\u4e48?"
+          ], 
+          "5": [
+            "\u8def\u7a0b\u8017\u65f6\u77ed\u4e48?"
+          ], 
+          "40": [
+            "\u8def\u7a0b\u8017\u65f6\u957f\u4e48?"
+          ], 
+          "10": [
+            "\u8def\u7a0b\u8017\u65f6\u77ed\u4e48?"
+          ], 
+          "45": [
+            "\u8def\u7a0b\u8017\u65f6\u957f\u4e48?"
+          ], 
+          "15": [
+            "\u8def\u7a0b\u8017\u65f6\u77ed\u4e48?"
+          ], 
+          "50": [
+            "\u8def\u7a0b\u8017\u65f6\u957f\u4e48?"
+          ], 
+          "20": [
+            "\u8def\u7a0b\u8017\u65f6\u77ed\u4e48?"
+          ], 
+          "55": [
+            "\u8def\u7a0b\u8017\u65f6\u957f\u4e48?"
+          ], 
+          "25": [
+            "\u8def\u7a0b\u8017\u65f6\u77ed\u4e48?"
+          ], 
+          "30": [
+            "\u8def\u7a0b\u8017\u65f6\u77ed\u4e48?"
+          ]
+        }
+      }, 
+      "to_loc": {
+        "inform": [
+          "\u53bb %s.", 
+          "%s.", 
+          "\u76ee\u7684\u5730\u662f %s.", 
+          "\u6253\u7b97\u53bb %s.", 
+          "\u5230 %s"
+        ], 
+        "request": [
+          "\u4f60\u8981\u53bb\u54ea\u91cc?", 
+          "\u4f60\u7684\u76ee\u7684\u5730\u662f\u54ea\u91cc?"
+        ]
+      }, 
+      "from_loc": {
+        "inform": [
+          "\u6211\u73b0\u5728\u5728 %s.", 
+          "%s.", 
+          "\u51fa\u53d1\u5730\u662f %s.", 
+          "\u5728 %s.", 
+          "\u4ece %s \u51fa\u53d1."
+        ], 
+        "request": [
+          "\u4f60\u4ece\u54ea\u91cc\u51fa\u53d1?", 
+          "\u4f60\u7684\u51fa\u53d1\u5730\u662f\u54ea\u91cc?"
+        ]
+      }
+    }, 
+    "db_size": 150
+  }, 
+  "dialogs": [
+    [
+      {
+        "domain": "bus", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": null, 
+              "name": "#from_loc", 
+              "max_conf": 0.0
+            }, 
+            {
+              "max_val": null, 
+              "name": "#to_loc", 
+              "max_conf": 0.0
+            }, 
+            {
+              "max_val": null, 
+              "name": "#datetime", 
+              "max_conf": 0.0
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.0, 
+              "name": "#default", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#arrive_in", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#duration", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [], 
+            "act": "greet"
+          }, 
+          {
+            "parameters": [
+              [
+                "#need", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "\u4f60\u53ef\u4ee5\u95ee\u6211\u516c\u4ea4\u8f66\u7684\u4fe1\u606f. \u6709\u4ec0\u4e48\u5e2e\u5230\u4f60\u7684\u4e48?"
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [], 
+            "act": "greet"
+          }, 
+          {
+            "parameters": [
+              [
+                "#default", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "conf": 0.6447637876119506, 
+        "utt": "\u4ec0\u4e48? \u6211\u8981\u627e\u4e00\u8f86\u516c\u4ea4\u8f66."
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": null, 
+              "name": "#from_loc", 
+              "max_conf": 0.0
+            }, 
+            {
+              "max_val": null, 
+              "name": "#to_loc", 
+              "max_conf": 0.0
+            }, 
+            {
+              "max_val": null, 
+              "name": "#datetime", 
+              "max_conf": 0.0
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#arrive_in", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#duration", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#from_loc", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "\u4f60\u4ece\u54ea\u91cc\u51fa\u53d1?"
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#from_loc", 
+                0
+              ]
+            ], 
+            "act": "inform"
+          }
+        ], 
+        "conf": 0.7610883967048654, 
+        "utt": "\u6211\u73b0\u5728\u5728 \u5317\u571f\u57ce."
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": "\u5317\u571f\u57ce", 
+              "name": "#from_loc", 
+              "max_conf": 0.7610883967048654
+            }, 
+            {
+              "max_val": null, 
+              "name": "#to_loc", 
+              "max_conf": 0.0
+            }, 
+            {
+              "max_val": null, 
+              "name": "#datetime", 
+              "max_conf": 0.0
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#arrive_in", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#duration", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#from_loc", 
+                "\u5317\u571f\u57ce"
+              ]
+            ], 
+            "act": "implicit_confirm"
+          }, 
+          {
+            "parameters": [
+              [
+                "#to_loc", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "\u6211\u76f8\u4fe1\u4f60\u8bf4\u7684\u662f \u5317\u571f\u57ce. \u4f60\u7684\u76ee\u7684\u5730\u662f\u54ea\u91cc?"
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#from_loc", 
+                0
+              ]
+            ], 
+            "act": "disconfirm"
+          }, 
+          {
+            "parameters": [
+              [
+                "#from_loc", 
+                6
+              ]
+            ], 
+            "act": "inform"
+          }, 
+          {
+            "parameters": [
+              [
+                "#to_loc", 
+                2
+              ], 
+              [
+                "#self_correct", 
+                true
+              ]
+            ], 
+            "act": "inform"
+          }, 
+          {
+            "parameters": [
+              [
+                "#from_loc", 
+                10
+              ]
+            ], 
+            "act": "inform"
+          }
+        ], 
+        "conf": 0.7364400274555275, 
+        "utt": "\u4e0d\u662f. \u671b\u4eac. uhm yeah \u4e0d\u662f. \u671b\u4eac. \u6211\u4e0d\u5173\u5fc3. uhm \u55ef \u4e0d\u597d\u610f\u601d, \u76ee\u7684\u5730\u662f \u516d\u91cc\u6865. \u56fd\u8d38."
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": "\u56fd\u8d38", 
+              "name": "#from_loc", 
+              "max_conf": 0.7364400274555275
+            }, 
+            {
+              "max_val": "\u516d\u91cc\u6865", 
+              "name": "#to_loc", 
+              "max_conf": 0.7364400274555275
+            }, 
+            {
+              "max_val": null, 
+              "name": "#datetime", 
+              "max_conf": 0.0
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#arrive_in", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#duration", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#from_loc", 
+                "\u56fd\u8d38"
+              ]
+            ], 
+            "act": "implicit_confirm"
+          }, 
+          {
+            "parameters": [
+              [
+                "#to_loc", 
+                "\u516d\u91cc\u6865"
+              ]
+            ], 
+            "act": "implicit_confirm"
+          }, 
+          {
+            "parameters": [
+              [
+                "#datetime", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "\u6211\u76f8\u4fe1\u4f60\u8bf4\u7684\u662f \u56fd\u8d38. \u6211\u76f8\u4fe1\u4f60\u8bf4\u7684\u662f \u516d\u91cc\u6865. \u4f60\u4ec0\u4e48\u65f6\u5019\u51fa\u53d1?"
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#datetime", 
+                12
+              ], 
+              [
+                "#self_correct", 
+                true
+              ]
+            ], 
+            "act": "inform"
+          }
+        ], 
+        "conf": 0.6679364953054524, 
+        "utt": "23. \u5965 \u4e0d\u662f, 8."
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": "\u56fd\u8d38", 
+              "name": "#from_loc", 
+              "max_conf": 1.5
+            }, 
+            {
+              "max_val": "\u516d\u91cc\u6865", 
+              "name": "#to_loc", 
+              "max_conf": 1.5
+            }, 
+            {
+              "max_val": "8", 
+              "name": "#datetime", 
+              "max_conf": 0.6679364953054524
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#arrive_in", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#duration", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#datetime", 
+                "8"
+              ]
+            ], 
+            "act": "implicit_confirm"
+          }, 
+          {
+            "parameters": [
+              {
+                "#to_loc": "\u516d\u91cc\u6865", 
+                "#from_loc": "\u56fd\u8d38", 
+                "#datetime": "8"
+              }, 
+              [
+                "#default"
+              ]
+            ], 
+            "act": "query"
+          }
+        ], 
+        "utt": "\u6211\u76f8\u4fe1\u4f60\u8bf4\u7684\u662f 8. {\"QUERY\": {\"#to_loc\": \"\\u516d\\u91cc\\u6865\", \"#from_loc\": \"\\u56fd\\u8d38\", \"#datetime\": \"8\"}, \"GOALS\": [\"#default\"]}"
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#datetime", 
+                12
+              ]
+            ], 
+            "act": "disconfirm"
+          }, 
+          {
+            "parameters": [
+              [
+                [
+                  "#from_loc", 
+                  10
+                ], 
+                [
+                  "#to_loc", 
+                  2
+                ], 
+                [
+                  "#datetime", 
+                  12
+                ]
+              ], 
+              {
+                "#default": 19
+              }
+            ], 
+            "act": "kb_return"
+          }
+        ], 
+        "conf": 0.5556500891141759, 
+        "utt": "\u662f\u9519\u7684. {\"RET\": {\"#default\": \"19\"}}"
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": true, 
+          "usr_slots": [
+            {
+              "max_val": "\u56fd\u8d38", 
+              "name": "#from_loc", 
+              "max_conf": 1.5
+            }, 
+            {
+              "max_val": "\u516d\u91cc\u6865", 
+              "name": "#to_loc", 
+              "max_conf": 1.5
+            }, 
+            {
+              "max_val": "8", 
+              "name": "#datetime", 
+              "max_conf": 1.3788963527227711
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": "19"
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#arrive_in", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#duration", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              {
+                "#default": "19"
+              }
+            ], 
+            "act": "inform"
+          }, 
+          {
+            "parameters": [
+              [
+                "#happy", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "19 \u516c\u4ea4\u8f66\u53ef\u4ee5\u5e26\u4f60\u53bb\u90a3\u91cc. \u8fd8\u6709\u95ee\u9898\u4e48?"
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#datetime", 
+                0
+              ]
+            ], 
+            "act": "inform"
+          }
+        ], 
+        "conf": 0.7636343657139384, 
+        "utt": "\u5728 \u4eca\u5929."
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": "\u56fd\u8d38", 
+              "name": "#from_loc", 
+              "max_conf": 1.5
+            }, 
+            {
+              "max_val": "\u516d\u91cc\u6865", 
+              "name": "#to_loc", 
+              "max_conf": 1.5
+            }, 
+            {
+              "max_val": "\u4eca\u5929", 
+              "name": "#datetime", 
+              "max_conf": 0.7636343657139384
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": "19"
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#arrive_in", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#duration", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#datetime", 
+                "\u4eca\u5929"
+              ]
+            ], 
+            "act": "implicit_confirm"
+          }, 
+          {
+            "parameters": [
+              {
+                "#to_loc": "\u516d\u91cc\u6865", 
+                "#from_loc": "\u56fd\u8d38", 
+                "#datetime": "\u4eca\u5929"
+              }, 
+              [
+                "#default"
+              ]
+            ], 
+            "act": "query"
+          }
+        ], 
+        "utt": "\u6211\u76f8\u4fe1\u4f60\u8bf4\u7684\u662f \u4eca\u5929. {\"QUERY\": {\"#to_loc\": \"\\u516d\\u91cc\\u6865\", \"#from_loc\": \"\\u56fd\\u8d38\", \"#datetime\": \"\\u4eca\\u5929\"}, \"GOALS\": [\"#default\"]}"
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                [
+                  "#from_loc", 
+                  10
+                ], 
+                [
+                  "#to_loc", 
+                  2
+                ], 
+                [
+                  "#datetime", 
+                  0
+                ]
+              ], 
+              {
+                "#default": 18
+              }
+            ], 
+            "act": "kb_return"
+          }
+        ], 
+        "conf": 0.7785515544433584, 
+        "utt": "{\"RET\": {\"#default\": \"18\"}}"
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": true, 
+          "usr_slots": [
+            {
+              "max_val": "\u56fd\u8d38", 
+              "name": "#from_loc", 
+              "max_conf": 1.5
+            }, 
+            {
+              "max_val": "\u516d\u91cc\u6865", 
+              "name": "#to_loc", 
+              "max_conf": 1.5
+            }, 
+            {
+              "max_val": "\u4eca\u5929", 
+              "name": "#datetime", 
+              "max_conf": 1.5
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": "18"
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#arrive_in", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#duration", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              {
+                "#default": "18"
+              }
+            ], 
+            "act": "inform"
+          }, 
+          {
+            "parameters": [
+              [
+                "#happy", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "18 \u516c\u4ea4\u8f66\u53ef\u4ee5\u5e26\u4f60\u53bb\u90a3\u91cc. \u4f60\u5bf9\u56de\u7b54\u5185\u5bb9\u6ee1\u610f\u4e48?"
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#default", 
+                null
+              ]
+            ], 
+            "act": "new_search"
+          }, 
+          {
+            "parameters": [
+              [
+                "#datetime", 
+                15
+              ], 
+              [
+                "#self_correct", 
+                true
+              ]
+            ], 
+            "act": "inform"
+          }
+        ], 
+        "conf": 0.7169076970067828, 
+        "utt": "\u6211\u518d\u67e5\u4e00\u4e2a. \u51fa\u53d1\u65f6\u95f4\u662f 6. \u55ef \u4e0d\u597d\u610f\u601d, \u6211 11 \u51fa\u53d1."
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": "\u56fd\u8d38", 
+              "name": "#from_loc", 
+              "max_conf": 0.4
+            }, 
+            {
+              "max_val": "\u516d\u91cc\u6865", 
+              "name": "#to_loc", 
+              "max_conf": 0.4
+            }, 
+            {
+              "max_val": "11", 
+              "name": "#datetime", 
+              "max_conf": 0.7169076970067828
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.0, 
+              "name": "#default", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0, 
+              "name": "#arrive_in", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0, 
+              "name": "#duration", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#datetime", 
+                "11"
+              ]
+            ], 
+            "act": "implicit_confirm"
+          }, 
+          {
+            "parameters": [
+              [
+                "#from_loc", 
+                "\u56fd\u8d38"
+              ]
+            ], 
+            "act": "explicit_confirm"
+          }
+        ], 
+        "utt": "\u6211\u76f8\u4fe1\u4f60\u8bf4\u7684\u662f 11. Do you mean \u56fd\u8d38?"
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#from_loc", 
+                10
+              ]
+            ], 
+            "act": "confirm"
+          }
+        ], 
+        "conf": 0.9419939206951699, 
+        "utt": "\u5bf9\u7684."
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": "\u56fd\u8d38", 
+              "name": "#from_loc", 
+              "max_conf": 1.1071902731122718
+            }, 
+            {
+              "max_val": "\u516d\u91cc\u6865", 
+              "name": "#to_loc", 
+              "max_conf": 0.4
+            }, 
+            {
+              "max_val": "11", 
+              "name": "#datetime", 
+              "max_conf": 1.5
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.0, 
+              "name": "#default", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0, 
+              "name": "#arrive_in", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0, 
+              "name": "#duration", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#to_loc", 
+                "\u516d\u91cc\u6865"
+              ]
+            ], 
+            "act": "explicit_confirm"
+          }
+        ], 
+        "utt": "Do you mean \u516d\u91cc\u6865?"
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#to_loc", 
+                2
+              ]
+            ], 
+            "act": "confirm"
+          }
+        ], 
+        "conf": 0.8402018170375034, 
+        "utt": "ok."
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": "\u56fd\u8d38", 
+              "name": "#from_loc", 
+              "max_conf": 1.1071902731122718
+            }, 
+            {
+              "max_val": "\u516d\u91cc\u6865", 
+              "name": "#to_loc", 
+              "max_conf": 0.9443229072600056
+            }, 
+            {
+              "max_val": "11", 
+              "name": "#datetime", 
+              "max_conf": 1.5
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.0, 
+              "name": "#default", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0, 
+              "name": "#arrive_in", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0, 
+              "name": "#duration", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#to_loc", 
+                "\u516d\u91cc\u6865"
+              ]
+            ], 
+            "act": "implicit_confirm"
+          }, 
+          {
+            "parameters": [
+              {
+                "#to_loc": "\u516d\u91cc\u6865", 
+                "#from_loc": "\u56fd\u8d38", 
+                "#datetime": "11"
+              }, 
+              [
+                "#default"
+              ]
+            ], 
+            "act": "query"
+          }
+        ], 
+        "utt": "\u6211\u76f8\u4fe1\u4f60\u8bf4\u7684\u662f \u516d\u91cc\u6865. {\"QUERY\": {\"#to_loc\": \"\\u516d\\u91cc\\u6865\", \"#from_loc\": \"\\u56fd\\u8d38\", \"#datetime\": \"11\"}, \"GOALS\": [\"#default\"]}"
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                [
+                  "#from_loc", 
+                  10
+                ], 
+                [
+                  "#to_loc", 
+                  2
+                ], 
+                [
+                  "#datetime", 
+                  15
+                ]
+              ], 
+              {
+                "#default": 147
+              }
+            ], 
+            "act": "kb_return"
+          }
+        ], 
+        "conf": 0.603431316467729, 
+        "utt": "{\"RET\": {\"#default\": \"147\"}}"
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": true, 
+          "usr_slots": [
+            {
+              "max_val": "\u56fd\u8d38", 
+              "name": "#from_loc", 
+              "max_conf": 1.1071902731122718
+            }, 
+            {
+              "max_val": "\u516d\u91cc\u6865", 
+              "name": "#to_loc", 
+              "max_conf": 1.5
+            }, 
+            {
+              "max_val": "11", 
+              "name": "#datetime", 
+              "max_conf": 1.5
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.0, 
+              "name": "#default", 
+              "value": "147"
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0, 
+              "name": "#arrive_in", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0, 
+              "name": "#duration", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              {
+                "#default": "147"
+              }
+            ], 
+            "act": "inform"
+          }, 
+          {
+            "parameters": [
+              [
+                "#happy", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "147 \u516c\u4ea4\u8f66\u53ef\u4ee5\u5e26\u4f60\u53bb\u90a3\u91cc. \u8fd8\u6709\u95ee\u9898\u4e48?"
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#default", 
+                null
+              ]
+            ], 
+            "act": "more_request"
+          }, 
+          {
+            "parameters": [
+              [
+                "#duration", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "conf": 0.8788579379666623, 
+        "utt": "\u518d\u95ee\u4e00\u4e0b. \u7528\u591a\u957f\u65f6\u95f4\u5230\u8fbe\u76ee\u7684\u5730?"
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": "\u56fd\u8d38", 
+              "name": "#from_loc", 
+              "max_conf": 1.1071902731122718
+            }, 
+            {
+              "max_val": "\u516d\u91cc\u6865", 
+              "name": "#to_loc", 
+              "max_conf": 1.5
+            }, 
+            {
+              "max_val": "11", 
+              "name": "#datetime", 
+              "max_conf": 1.5
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": true, 
+              "conf": 1.0, 
+              "name": "#default", 
+              "value": "147"
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0, 
+              "name": "#arrive_in", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.0788579379666623, 
+              "name": "#duration", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              {
+                "#to_loc": "\u516d\u91cc\u6865", 
+                "#from_loc": "\u56fd\u8d38", 
+                "#datetime": "11"
+              }, 
+              [
+                "#duration"
+              ]
+            ], 
+            "act": "query"
+          }
+        ], 
+        "utt": "{\"QUERY\": {\"#to_loc\": \"\\u516d\\u91cc\\u6865\", \"#from_loc\": \"\\u56fd\\u8d38\", \"#datetime\": \"11\"}, \"GOALS\": [\"#duration\"]}"
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                [
+                  "#from_loc", 
+                  10
+                ], 
+                [
+                  "#to_loc", 
+                  2
+                ], 
+                [
+                  "#datetime", 
+                  15
+                ]
+              ], 
+              {
+                "#duration": 1
+              }
+            ], 
+            "act": "kb_return"
+          }
+        ], 
+        "conf": 0.6199753038784128, 
+        "utt": "{\"RET\": {\"#duration\": \"5\"}}"
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": true, 
+          "usr_slots": [
+            {
+              "max_val": "\u56fd\u8d38", 
+              "name": "#from_loc", 
+              "max_conf": 1.1071902731122718
+            }, 
+            {
+              "max_val": "\u516d\u91cc\u6865", 
+              "name": "#to_loc", 
+              "max_conf": 1.5
+            }, 
+            {
+              "max_val": "11", 
+              "name": "#datetime", 
+              "max_conf": 1.5
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": true, 
+              "conf": 1.0, 
+              "name": "#default", 
+              "value": "147"
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0, 
+              "name": "#arrive_in", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.0788579379666623, 
+              "name": "#duration", 
+              "value": "5"
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              {
+                "#duration": "5"
+              }
+            ], 
+            "act": "inform"
+          }, 
+          {
+            "parameters": [
+              [
+                "#happy", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "\u65c5\u7a0b\u65f6\u95f4\u662f 5 \u5206\u949f. \u8fd8\u6709\u5176\u4ed6\u80fd\u5e2e\u5230\u4f60\u7684\u4e48?"
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#duration", 
+                null
+              ]
+            ], 
+            "act": "satisfy"
+          }, 
+          {
+            "parameters": [], 
+            "act": "goodbye"
+          }
+        ], 
+        "conf": 0.4586680305579721, 
+        "utt": "\u6ca1\u6709\u95ee\u9898\u4e86. \u5c31\u8fd9\u6837\u5427."
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": "\u56fd\u8d38", 
+              "name": "#from_loc", 
+              "max_conf": 1.1071902731122718
+            }, 
+            {
+              "max_val": "\u516d\u91cc\u6865", 
+              "name": "#to_loc", 
+              "max_conf": 1.5
+            }, 
+            {
+              "max_val": "11", 
+              "name": "#datetime", 
+              "max_conf": 1.5
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": true, 
+              "conf": 1.0, 
+              "name": "#default", 
+              "value": "147"
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0, 
+              "name": "#arrive_in", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": true, 
+              "conf": 1.0788579379666623, 
+              "name": "#duration", 
+              "value": "5"
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [], 
+            "act": "goodbye"
+          }
+        ], 
+        "utt": "\u56de\u89c1."
+      }
+    ], 
+    [
+      {
+        "domain": "bus", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": null, 
+              "name": "#from_loc", 
+              "max_conf": 0.0
+            }, 
+            {
+              "max_val": null, 
+              "name": "#to_loc", 
+              "max_conf": 0.0
+            }, 
+            {
+              "max_val": null, 
+              "name": "#datetime", 
+              "max_conf": 0.0
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.0, 
+              "name": "#default", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#arrive_in", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#duration", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [], 
+            "act": "greet"
+          }, 
+          {
+            "parameters": [
+              [
+                "#need", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "\u4f60\u53ef\u4ee5\u95ee\u6211\u516c\u4ea4\u8f66\u7684\u4fe1\u606f. \u6709\u4ec0\u4e48\u53ef\u4ee5\u5e2e\u5230\u4f60\u4e48?"
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [], 
+            "act": "greet"
+          }, 
+          {
+            "parameters": [
+              [
+                "#default", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "conf": 0.5714864842262277, 
+        "utt": "Hi \u6211\u8981\u627e\u4e00\u8f86\u516c\u4ea4\u8f66."
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": null, 
+              "name": "#from_loc", 
+              "max_conf": 0.0
+            }, 
+            {
+              "max_val": null, 
+              "name": "#to_loc", 
+              "max_conf": 0.0
+            }, 
+            {
+              "max_val": null, 
+              "name": "#datetime", 
+              "max_conf": 0.0
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#arrive_in", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#duration", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#from_loc", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "\u4f60\u7684\u51fa\u53d1\u5730\u662f\u54ea\u91cc?"
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#from_loc", 
+                null
+              ], 
+              [
+                "#self_correct", 
+                true
+              ]
+            ], 
+            "act": "inform"
+          }
+        ], 
+        "conf": 0.9331460420129315, 
+        "utt": "\u6211\u73b0\u5728\u5728 \u5317\u5927. \u5965 \u4e0d\u662f, \u6211\u4e0d\u5173\u5fc3."
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": null, 
+              "name": "#from_loc", 
+              "max_conf": 0.9331460420129315
+            }, 
+            {
+              "max_val": null, 
+              "name": "#to_loc", 
+              "max_conf": 0.0
+            }, 
+            {
+              "max_val": null, 
+              "name": "#datetime", 
+              "max_conf": 0.0
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#arrive_in", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#duration", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#from_loc", 
+                "dont_care"
+              ]
+            ], 
+            "act": "implicit_confirm"
+          }, 
+          {
+            "parameters": [
+              [
+                "#to_loc", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "\u597d\u7684, \u4f60\u4e0d\u5173\u5fc3. \u4f60\u8981\u53bb\u54ea\u91cc?"
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#to_loc", 
+                7
+              ]
+            ], 
+            "act": "inform"
+          }
+        ], 
+        "conf": 0.6007959196795005, 
+        "utt": "\u6253\u7b97\u53bb \u5317\u4eac\u5357\u7ad9."
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": null, 
+              "name": "#from_loc", 
+              "max_conf": 1.5
+            }, 
+            {
+              "max_val": "\u5317\u4eac\u5357\u7ad9", 
+              "name": "#to_loc", 
+              "max_conf": 0.6007959196795005
+            }, 
+            {
+              "max_val": null, 
+              "name": "#datetime", 
+              "max_conf": 0.0
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#arrive_in", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#duration", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#to_loc", 
+                "\u5317\u4eac\u5357\u7ad9"
+              ]
+            ], 
+            "act": "implicit_confirm"
+          }, 
+          {
+            "parameters": [
+              [
+                "#datetime", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "\u6211\u76f8\u4fe1\u4f60\u8bf4\u7684\u662f \u5317\u4eac\u5357\u7ad9. \u4f60\u4ec0\u4e48\u65f6\u5019\u51fa\u53d1?"
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#to_loc", 
+                7
+              ]
+            ], 
+            "act": "disconfirm"
+          }, 
+          {
+            "parameters": [
+              [
+                "#datetime", 
+                null
+              ], 
+              [
+                "#self_correct", 
+                true
+              ]
+            ], 
+            "act": "inform"
+          }
+        ], 
+        "conf": 0.9143981737792543, 
+        "utt": "\u662f\u9519\u7684. 9. \u55ef \u4e0d\u597d\u610f\u601d, \u4ec0\u4e48\u503c\u90fd\u53ef\u4ee5."
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": null, 
+              "name": "#from_loc", 
+              "max_conf": 1.5
+            }, 
+            {
+              "max_val": "\u5317\u4eac\u5357\u7ad9", 
+              "name": "#to_loc", 
+              "max_conf": 0.7377588416326938
+            }, 
+            {
+              "max_val": null, 
+              "name": "#datetime", 
+              "max_conf": 0.9143981737792543
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#arrive_in", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#duration", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#to_loc", 
+                "\u5317\u4eac\u5357\u7ad9"
+              ]
+            ], 
+            "act": "implicit_confirm"
+          }, 
+          {
+            "parameters": [
+              [
+                "#datetime", 
+                "dont_care"
+              ]
+            ], 
+            "act": "implicit_confirm"
+          }, 
+          {
+            "parameters": [
+              {
+                "#to_loc": "\u5317\u4eac\u5357\u7ad9", 
+                "#from_loc": "dont_care", 
+                "#datetime": "dont_care"
+              }, 
+              [
+                "#default"
+              ]
+            ], 
+            "act": "query"
+          }
+        ], 
+        "utt": "\u6211\u76f8\u4fe1\u4f60\u8bf4\u7684\u662f \u5317\u4eac\u5357\u7ad9. \u597d\u7684, \u4e0d\u7528\u5173\u5fc3. {\"QUERY\": {\"#to_loc\": \"\\u5317\\u4eac\\u5357\\u7ad9\", \"#from_loc\": \"dont_care\", \"#datetime\": \"dont_care\"}, \"GOALS\": [\"#default\"]}"
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#to_loc", 
+                7
+              ]
+            ], 
+            "act": "disconfirm"
+          }, 
+          {
+            "parameters": [
+              [
+                [
+                  "#from_loc", 
+                  null
+                ], 
+                [
+                  "#to_loc", 
+                  7
+                ], 
+                [
+                  "#datetime", 
+                  null
+                ]
+              ], 
+              {
+                "#default": 101
+              }
+            ], 
+            "act": "kb_return"
+          }
+        ], 
+        "conf": 0.6950238388299401, 
+        "utt": "\u662f\u9519\u7684. {\"RET\": {\"#default\": \"101\"}}"
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": true, 
+          "usr_slots": [
+            {
+              "max_val": null, 
+              "name": "#from_loc", 
+              "max_conf": 1.5
+            }, 
+            {
+              "max_val": "\u5317\u4eac\u5357\u7ad9", 
+              "name": "#to_loc", 
+              "max_conf": 1.1879618578720958
+            }, 
+            {
+              "max_val": null, 
+              "name": "#datetime", 
+              "max_conf": 1.5
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": "101"
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#arrive_in", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#duration", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              {
+                "#default": "101"
+              }
+            ], 
+            "act": "inform"
+          }, 
+          {
+            "parameters": [
+              [
+                "#happy", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "101 \u516c\u4ea4\u8f66\u53ef\u4ee5\u5e26\u4f60\u53bb\u90a3\u91cc. \u8fd8\u6709\u95ee\u9898\u4e48?"
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#to_loc", 
+                9
+              ]
+            ], 
+            "act": "inform"
+          }
+        ], 
+        "conf": 0.5795029681217434, 
+        "utt": "\u897f\u5355."
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": null, 
+              "name": "#from_loc", 
+              "max_conf": 1.5
+            }, 
+            {
+              "max_val": "\u5317\u4eac\u5357\u7ad9", 
+              "name": "#to_loc", 
+              "max_conf": 0.5939809289360479
+            }, 
+            {
+              "max_val": null, 
+              "name": "#datetime", 
+              "max_conf": 1.5
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": "101"
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#arrive_in", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#duration", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#to_loc", 
+                "\u5317\u4eac\u5357\u7ad9"
+              ]
+            ], 
+            "act": "explicit_confirm"
+          }
+        ], 
+        "utt": "Do you mean \u5317\u4eac\u5357\u7ad9?"
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#to_loc", 
+                7
+              ]
+            ], 
+            "act": "disconfirm"
+          }
+        ], 
+        "conf": 0.8898180422840102, 
+        "utt": "\u9519."
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": null, 
+              "name": "#from_loc", 
+              "max_conf": 1.5
+            }, 
+            {
+              "max_val": "\u897f\u5355", 
+              "name": "#to_loc", 
+              "max_conf": 0.5795029681217434
+            }, 
+            {
+              "max_val": null, 
+              "name": "#datetime", 
+              "max_conf": 1.5
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": "101"
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#arrive_in", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#duration", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#to_loc", 
+                "\u897f\u5355"
+              ]
+            ], 
+            "act": "explicit_confirm"
+          }
+        ], 
+        "utt": "Do you mean \u897f\u5355?"
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#to_loc", 
+                9
+              ]
+            ], 
+            "act": "confirm"
+          }
+        ], 
+        "conf": 0.7372881974724116, 
+        "utt": "\u5bf9\u7684."
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": null, 
+              "name": "#from_loc", 
+              "max_conf": 1.5
+            }, 
+            {
+              "max_val": "\u897f\u5355", 
+              "name": "#to_loc", 
+              "max_conf": 0.9591640840776019
+            }, 
+            {
+              "max_val": null, 
+              "name": "#datetime", 
+              "max_conf": 1.5
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": "101"
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#arrive_in", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#duration", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              {
+                "#to_loc": "\u897f\u5355", 
+                "#from_loc": "dont_care", 
+                "#datetime": "dont_care"
+              }, 
+              [
+                "#default"
+              ]
+            ], 
+            "act": "query"
+          }
+        ], 
+        "utt": "{\"QUERY\": {\"#to_loc\": \"\\u897f\\u5355\", \"#from_loc\": \"dont_care\", \"#datetime\": \"dont_care\"}, \"GOALS\": [\"#default\"]}"
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                [
+                  "#from_loc", 
+                  null
+                ], 
+                [
+                  "#to_loc", 
+                  9
+                ], 
+                [
+                  "#datetime", 
+                  null
+                ]
+              ], 
+              {
+                "#default": 31
+              }
+            ], 
+            "act": "kb_return"
+          }
+        ], 
+        "conf": 0.8159921120707596, 
+        "utt": "{\"RET\": {\"#default\": \"31\"}}"
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": true, 
+          "usr_slots": [
+            {
+              "max_val": null, 
+              "name": "#from_loc", 
+              "max_conf": 1.5
+            }, 
+            {
+              "max_val": "\u897f\u5355", 
+              "name": "#to_loc", 
+              "max_conf": 0.9591640840776019
+            }, 
+            {
+              "max_val": null, 
+              "name": "#datetime", 
+              "max_conf": 1.5
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": "31"
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#arrive_in", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#duration", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              {
+                "#default": "31"
+              }
+            ], 
+            "act": "inform"
+          }, 
+          {
+            "parameters": [
+              [
+                "#happy", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "31 \u516c\u4ea4\u8f66\u53ef\u4ee5\u5e26\u4f60\u53bb\u90a3\u91cc. \u8fd8\u6709\u5176\u4ed6\u80fd\u5e2e\u5230\u4f60\u7684\u4e48?"
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#default", 
+                null
+              ]
+            ], 
+            "act": "satisfy"
+          }, 
+          {
+            "parameters": [], 
+            "act": "goodbye"
+          }
+        ], 
+        "conf": 0.18933002609691474, 
+        "utt": "\u6211\u60f3\u8981\u95ee\u7684\u90fd\u95ee\u5b8c\u4e86. \u8c22\u8c22\u4f60."
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": null, 
+              "name": "#from_loc", 
+              "max_conf": 1.5
+            }, 
+            {
+              "max_val": "\u897f\u5355", 
+              "name": "#to_loc", 
+              "max_conf": 0.9591640840776019
+            }, 
+            {
+              "max_val": null, 
+              "name": "#datetime", 
+              "max_conf": 1.5
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": true, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": "31"
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#arrive_in", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#duration", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [], 
+            "act": "goodbye"
+          }
+        ], 
+        "utt": "\u56de\u89c1."
+      }
+    ], 
+    [
+      {
+        "domain": "bus", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": null, 
+              "name": "#from_loc", 
+              "max_conf": 0.0
+            }, 
+            {
+              "max_val": null, 
+              "name": "#to_loc", 
+              "max_conf": 0.0
+            }, 
+            {
+              "max_val": null, 
+              "name": "#datetime", 
+              "max_conf": 0.0
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.0, 
+              "name": "#default", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#arrive_in", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#duration", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [], 
+            "act": "greet"
+          }, 
+          {
+            "parameters": [
+              [
+                "#need", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "\u4f60\u53ef\u4ee5\u95ee\u6211\u516c\u4ea4\u8f66\u7684\u4fe1\u606f. \u4f60\u9700\u8981\u4ec0\u4e48\u5e2e\u52a9\u4e48?"
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [], 
+            "act": "greet"
+          }, 
+          {
+            "parameters": [
+              [
+                "#default", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "conf": 0.863294673831372, 
+        "utt": "Hello \u673a\u5668\u4eba. \u6211\u8981\u627e\u4e00\u8f86\u516c\u4ea4\u8f66."
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": null, 
+              "name": "#from_loc", 
+              "max_conf": 0.0
+            }, 
+            {
+              "max_val": null, 
+              "name": "#to_loc", 
+              "max_conf": 0.0
+            }, 
+            {
+              "max_val": null, 
+              "name": "#datetime", 
+              "max_conf": 0.0
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#arrive_in", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#duration", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#from_loc", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "\u4f60\u4ece\u54ea\u91cc\u51fa\u53d1?"
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#from_loc", 
+                8
+              ]
+            ], 
+            "act": "inform"
+          }, 
+          {
+            "parameters": [
+              [
+                "#to_loc", 
+                8
+              ]
+            ], 
+            "act": "inform"
+          }
+        ], 
+        "conf": 0.5792438190279342, 
+        "utt": "\u5728 \u78c1\u5668\u53e3. \u78c1\u5668\u53e3."
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": "\u78c1\u5668\u53e3", 
+              "name": "#from_loc", 
+              "max_conf": 0.5792438190279342
+            }, 
+            {
+              "max_val": "\u78c1\u5668\u53e3", 
+              "name": "#to_loc", 
+              "max_conf": 0.5792438190279342
+            }, 
+            {
+              "max_val": null, 
+              "name": "#datetime", 
+              "max_conf": 0.0
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#arrive_in", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#duration", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#datetime", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "\u4f60\u9700\u8981\u4ec0\u4e48\u65f6\u95f4\u6bb5\u7684\u516c\u4ea4\u8f66?"
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#datetime", 
+                15
+              ]
+            ], 
+            "act": "inform"
+          }
+        ], 
+        "conf": 0.99, 
+        "utt": "\u51fa\u53d1\u65f6\u95f4\u662f 11."
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": "\u78c1\u5668\u53e3", 
+              "name": "#from_loc", 
+              "max_conf": 0.5792438190279342
+            }, 
+            {
+              "max_val": "\u78c1\u5668\u53e3", 
+              "name": "#to_loc", 
+              "max_conf": 0.5792438190279342
+            }, 
+            {
+              "max_val": "11", 
+              "name": "#datetime", 
+              "max_conf": 0.99
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#arrive_in", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#duration", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#from_loc", 
+                "\u78c1\u5668\u53e3"
+              ]
+            ], 
+            "act": "explicit_confirm"
+          }
+        ], 
+        "utt": "Do you mean \u78c1\u5668\u53e3?"
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#from_loc", 
+                8
+              ]
+            ], 
+            "act": "confirm"
+          }
+        ], 
+        "conf": 0.47694983615662234, 
+        "utt": "\u662f\u9519\u7684."
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": "\u78c1\u5668\u53e3", 
+              "name": "#from_loc", 
+              "max_conf": 0.6161240811773384
+            }, 
+            {
+              "max_val": "\u78c1\u5668\u53e3", 
+              "name": "#to_loc", 
+              "max_conf": 0.5792438190279342
+            }, 
+            {
+              "max_val": "11", 
+              "name": "#datetime", 
+              "max_conf": 0.99
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#arrive_in", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#duration", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#from_loc", 
+                "\u78c1\u5668\u53e3"
+              ]
+            ], 
+            "act": "implicit_confirm"
+          }, 
+          {
+            "parameters": [
+              [
+                "#to_loc", 
+                "\u78c1\u5668\u53e3"
+              ]
+            ], 
+            "act": "explicit_confirm"
+          }
+        ], 
+        "utt": "\u6211\u76f8\u4fe1\u4f60\u8bf4\u7684\u662f \u78c1\u5668\u53e3. Do you mean \u78c1\u5668\u53e3?"
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#to_loc", 
+                8
+              ]
+            ], 
+            "act": "confirm"
+          }
+        ], 
+        "conf": 0.9140943400565241, 
+        "utt": "ok."
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": "\u78c1\u5668\u53e3", 
+              "name": "#from_loc", 
+              "max_conf": 1.4161240811773386
+            }, 
+            {
+              "max_val": "\u78c1\u5668\u53e3", 
+              "name": "#to_loc", 
+              "max_conf": 1.2417947631183728
+            }, 
+            {
+              "max_val": "11", 
+              "name": "#datetime", 
+              "max_conf": 0.99
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#arrive_in", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#duration", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              {
+                "#to_loc": "\u78c1\u5668\u53e3", 
+                "#from_loc": "\u78c1\u5668\u53e3", 
+                "#datetime": "11"
+              }, 
+              [
+                "#default"
+              ]
+            ], 
+            "act": "query"
+          }
+        ], 
+        "utt": "{\"QUERY\": {\"#to_loc\": \"\\u78c1\\u5668\\u53e3\", \"#from_loc\": \"\\u78c1\\u5668\\u53e3\", \"#datetime\": \"11\"}, \"GOALS\": [\"#default\"]}"
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                [
+                  "#from_loc", 
+                  8
+                ], 
+                [
+                  "#to_loc", 
+                  8
+                ], 
+                [
+                  "#datetime", 
+                  15
+                ]
+              ], 
+              {
+                "#default": 45
+              }
+            ], 
+            "act": "kb_return"
+          }
+        ], 
+        "conf": 0.45199958502173565, 
+        "utt": "{\"RET\": {\"#default\": \"45\"}}"
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": true, 
+          "usr_slots": [
+            {
+              "max_val": "\u78c1\u5668\u53e3", 
+              "name": "#from_loc", 
+              "max_conf": 1.4161240811773386
+            }, 
+            {
+              "max_val": "\u78c1\u5668\u53e3", 
+              "name": "#to_loc", 
+              "max_conf": 1.2417947631183728
+            }, 
+            {
+              "max_val": "11", 
+              "name": "#datetime", 
+              "max_conf": 0.99
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": "45"
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#arrive_in", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#duration", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              {
+                "#default": "45"
+              }
+            ], 
+            "act": "inform"
+          }, 
+          {
+            "parameters": [
+              [
+                "#happy", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "45 \u516c\u4ea4\u8f66\u53ef\u4ee5\u5e26\u4f60\u53bb\u90a3\u91cc. \u8fd8\u6709\u95ee\u9898\u4e48?"
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#default", 
+                null
+              ]
+            ], 
+            "act": "new_search"
+          }, 
+          {
+            "parameters": [
+              [
+                "#to_loc", 
+                3
+              ], 
+              [
+                "#self_correct", 
+                true
+              ]
+            ], 
+            "act": "inform"
+          }
+        ], 
+        "conf": 0.5821987112803666, 
+        "utt": "\u518d\u95ee\u4e00\u4e2a\u95ee\u9898. \u6253\u7b97\u53bb \u5317\u5927. \u5965 \u7b49\u4e0b, \u76ee\u7684\u5730\u662f \u6d77\u6dc0\u9ec4\u5e84."
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": "\u78c1\u5668\u53e3", 
+              "name": "#from_loc", 
+              "max_conf": 0.4
+            }, 
+            {
+              "max_val": "\u6d77\u6dc0\u9ec4\u5e84", 
+              "name": "#to_loc", 
+              "max_conf": 0.5821987112803666
+            }, 
+            {
+              "max_val": "11", 
+              "name": "#datetime", 
+              "max_conf": 0.4
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.0, 
+              "name": "#default", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0, 
+              "name": "#arrive_in", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0, 
+              "name": "#duration", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#from_loc", 
+                "\u78c1\u5668\u53e3"
+              ]
+            ], 
+            "act": "explicit_confirm"
+          }
+        ], 
+        "utt": "Do you mean \u78c1\u5668\u53e3?"
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#from_loc", 
+                8
+              ]
+            ], 
+            "act": "confirm"
+          }
+        ], 
+        "conf": 0.93823961816758, 
+        "utt": "ok."
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": "\u78c1\u5668\u53e3", 
+              "name": "#from_loc", 
+              "max_conf": 1.101183389068128
+            }, 
+            {
+              "max_val": "\u6d77\u6dc0\u9ec4\u5e84", 
+              "name": "#to_loc", 
+              "max_conf": 0.5821987112803666
+            }, 
+            {
+              "max_val": "11", 
+              "name": "#datetime", 
+              "max_conf": 0.4
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.0, 
+              "name": "#default", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0, 
+              "name": "#arrive_in", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0, 
+              "name": "#duration", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#to_loc", 
+                "\u6d77\u6dc0\u9ec4\u5e84"
+              ]
+            ], 
+            "act": "explicit_confirm"
+          }
+        ], 
+        "utt": "Do you mean \u6d77\u6dc0\u9ec4\u5e84?"
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#to_loc", 
+                3
+              ]
+            ], 
+            "act": "confirm"
+          }
+        ], 
+        "conf": 0.99, 
+        "utt": "\u662f\u7684."
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": "\u78c1\u5668\u53e3", 
+              "name": "#from_loc", 
+              "max_conf": 1.101183389068128
+            }, 
+            {
+              "max_val": "\u6d77\u6dc0\u9ec4\u5e84", 
+              "name": "#to_loc", 
+              "max_conf": 1.3661987112803666
+            }, 
+            {
+              "max_val": "11", 
+              "name": "#datetime", 
+              "max_conf": 0.4
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.0, 
+              "name": "#default", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0, 
+              "name": "#arrive_in", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0, 
+              "name": "#duration", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#datetime", 
+                "11"
+              ]
+            ], 
+            "act": "explicit_confirm"
+          }
+        ], 
+        "utt": "Do you mean 11?"
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#datetime", 
+                15
+              ]
+            ], 
+            "act": "confirm"
+          }
+        ], 
+        "conf": 0.99, 
+        "utt": "ok."
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": "\u78c1\u5668\u53e3", 
+              "name": "#from_loc", 
+              "max_conf": 1.101183389068128
+            }, 
+            {
+              "max_val": "\u6d77\u6dc0\u9ec4\u5e84", 
+              "name": "#to_loc", 
+              "max_conf": 1.3661987112803666
+            }, 
+            {
+              "max_val": "11", 
+              "name": "#datetime", 
+              "max_conf": 1.1840000000000002
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.0, 
+              "name": "#default", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0, 
+              "name": "#arrive_in", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0, 
+              "name": "#duration", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              {
+                "#to_loc": "\u6d77\u6dc0\u9ec4\u5e84", 
+                "#from_loc": "\u78c1\u5668\u53e3", 
+                "#datetime": "11"
+              }, 
+              [
+                "#default"
+              ]
+            ], 
+            "act": "query"
+          }
+        ], 
+        "utt": "{\"QUERY\": {\"#to_loc\": \"\\u6d77\\u6dc0\\u9ec4\\u5e84\", \"#from_loc\": \"\\u78c1\\u5668\\u53e3\", \"#datetime\": \"11\"}, \"GOALS\": [\"#default\"]}"
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                [
+                  "#from_loc", 
+                  8
+                ], 
+                [
+                  "#to_loc", 
+                  3
+                ], 
+                [
+                  "#datetime", 
+                  15
+                ]
+              ], 
+              {
+                "#default": 26
+              }
+            ], 
+            "act": "kb_return"
+          }
+        ], 
+        "conf": 0.6914904734218321, 
+        "utt": "{\"RET\": {\"#default\": \"26\"}}"
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": true, 
+          "usr_slots": [
+            {
+              "max_val": "\u78c1\u5668\u53e3", 
+              "name": "#from_loc", 
+              "max_conf": 1.101183389068128
+            }, 
+            {
+              "max_val": "\u6d77\u6dc0\u9ec4\u5e84", 
+              "name": "#to_loc", 
+              "max_conf": 1.3661987112803666
+            }, 
+            {
+              "max_val": "11", 
+              "name": "#datetime", 
+              "max_conf": 1.1840000000000002
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.0, 
+              "name": "#default", 
+              "value": "26"
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0, 
+              "name": "#arrive_in", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0, 
+              "name": "#duration", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              {
+                "#default": "26"
+              }
+            ], 
+            "act": "inform"
+          }, 
+          {
+            "parameters": [
+              [
+                "#happy", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "26 \u516c\u4ea4\u8f66\u53ef\u4ee5\u5e26\u4f60\u53bb\u90a3\u91cc. \u8fd8\u6709\u95ee\u9898\u4e48?"
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#default", 
+                null
+              ]
+            ], 
+            "act": "more_request"
+          }, 
+          {
+            "parameters": [
+              [
+                "#duration", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "conf": 0.45854530477853067, 
+        "utt": "\u6211\u53c8\u5176\u4ed6\u95ee\u9898. \u8def\u4e0a\u7528\u65f6\u591a\u957f?."
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": "\u78c1\u5668\u53e3", 
+              "name": "#from_loc", 
+              "max_conf": 1.101183389068128
+            }, 
+            {
+              "max_val": "\u6d77\u6dc0\u9ec4\u5e84", 
+              "name": "#to_loc", 
+              "max_conf": 1.3661987112803666
+            }, 
+            {
+              "max_val": "11", 
+              "name": "#datetime", 
+              "max_conf": 1.1840000000000002
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": true, 
+              "conf": 1.0, 
+              "name": "#default", 
+              "value": "26"
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0, 
+              "name": "#arrive_in", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.6585453047785307, 
+              "name": "#duration", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#need", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "\u6709\u4ec0\u4e48\u5e2e\u5230\u4f60\u7684\u4e48?"
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#duration", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "conf": 0.5189503206261854, 
+        "utt": "\u7528\u591a\u957f\u65f6\u95f4\u5230\u8fbe\u76ee\u7684\u5730?"
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": "\u78c1\u5668\u53e3", 
+              "name": "#from_loc", 
+              "max_conf": 1.101183389068128
+            }, 
+            {
+              "max_val": "\u6d77\u6dc0\u9ec4\u5e84", 
+              "name": "#to_loc", 
+              "max_conf": 1.3661987112803666
+            }, 
+            {
+              "max_val": "11", 
+              "name": "#datetime", 
+              "max_conf": 1.1840000000000002
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": true, 
+              "conf": 1.0, 
+              "name": "#default", 
+              "value": "26"
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0, 
+              "name": "#arrive_in", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.8585453047785307, 
+              "name": "#duration", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              {
+                "#to_loc": "\u6d77\u6dc0\u9ec4\u5e84", 
+                "#from_loc": "\u78c1\u5668\u53e3", 
+                "#datetime": "11"
+              }, 
+              [
+                "#duration"
+              ]
+            ], 
+            "act": "query"
+          }
+        ], 
+        "utt": "{\"QUERY\": {\"#to_loc\": \"\\u6d77\\u6dc0\\u9ec4\\u5e84\", \"#from_loc\": \"\\u78c1\\u5668\\u53e3\", \"#datetime\": \"11\"}, \"GOALS\": [\"#duration\"]}"
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                [
+                  "#from_loc", 
+                  8
+                ], 
+                [
+                  "#to_loc", 
+                  3
+                ], 
+                [
+                  "#datetime", 
+                  15
+                ]
+              ], 
+              {
+                "#duration": 1
+              }
+            ], 
+            "act": "kb_return"
+          }
+        ], 
+        "conf": 0.5954386434919355, 
+        "utt": "{\"RET\": {\"#duration\": \"5\"}}"
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": true, 
+          "usr_slots": [
+            {
+              "max_val": "\u78c1\u5668\u53e3", 
+              "name": "#from_loc", 
+              "max_conf": 1.101183389068128
+            }, 
+            {
+              "max_val": "\u6d77\u6dc0\u9ec4\u5e84", 
+              "name": "#to_loc", 
+              "max_conf": 1.3661987112803666
+            }, 
+            {
+              "max_val": "11", 
+              "name": "#datetime", 
+              "max_conf": 1.1840000000000002
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": true, 
+              "conf": 1.0, 
+              "name": "#default", 
+              "value": "26"
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0, 
+              "name": "#arrive_in", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.8585453047785307, 
+              "name": "#duration", 
+              "value": "5"
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              {
+                "#duration": "5"
+              }
+            ], 
+            "act": "inform"
+          }, 
+          {
+            "parameters": [
+              [
+                "#happy", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "\u65c5\u7a0b\u65f6\u95f4\u662f 5 \u5206\u949f. \u8fd8\u6709\u5176\u4ed6\u80fd\u5e2e\u5230\u4f60\u7684\u4e48?"
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#duration", 
+                null
+              ]
+            ], 
+            "act": "satisfy"
+          }, 
+          {
+            "parameters": [], 
+            "act": "goodbye"
+          }
+        ], 
+        "conf": 0.5205071373398374, 
+        "utt": "\u6211\u60f3\u8981\u95ee\u7684\u90fd\u95ee\u5b8c\u4e86. \u5c31\u8fd9\u6837\u5427."
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": "\u78c1\u5668\u53e3", 
+              "name": "#from_loc", 
+              "max_conf": 1.101183389068128
+            }, 
+            {
+              "max_val": "\u6d77\u6dc0\u9ec4\u5e84", 
+              "name": "#to_loc", 
+              "max_conf": 1.3661987112803666
+            }, 
+            {
+              "max_val": "11", 
+              "name": "#datetime", 
+              "max_conf": 1.1840000000000002
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": true, 
+              "conf": 1.0, 
+              "name": "#default", 
+              "value": "26"
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0, 
+              "name": "#arrive_in", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": true, 
+              "conf": 0.8585453047785307, 
+              "name": "#duration", 
+              "value": "5"
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [], 
+            "act": "goodbye"
+          }
+        ], 
+        "utt": "\u56de\u89c1."
+      }
+    ], 
+    [
+      {
+        "domain": "bus", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": null, 
+              "name": "#from_loc", 
+              "max_conf": 0.0
+            }, 
+            {
+              "max_val": null, 
+              "name": "#to_loc", 
+              "max_conf": 0.0
+            }, 
+            {
+              "max_val": null, 
+              "name": "#datetime", 
+              "max_conf": 0.0
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.0, 
+              "name": "#default", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#arrive_in", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#duration", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [], 
+            "act": "greet"
+          }, 
+          {
+            "parameters": [
+              [
+                "#need", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "\u4f60\u53ef\u4ee5\u95ee\u6211\u516c\u4ea4\u8f66\u7684\u4fe1\u606f. \u6709\u4ec0\u4e48\u5e2e\u5230\u4f60\u7684\u4e48?"
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [], 
+            "act": "greet"
+          }, 
+          {
+            "parameters": [
+              [
+                "#default", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "conf": 0.7892462220441764, 
+        "utt": "Hello \u673a\u5668\u4eba. \u63a8\u8350\u4e00\u8f86\u516c\u4ea4\u8f66\u5427."
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": null, 
+              "name": "#from_loc", 
+              "max_conf": 0.0
+            }, 
+            {
+              "max_val": null, 
+              "name": "#to_loc", 
+              "max_conf": 0.0
+            }, 
+            {
+              "max_val": null, 
+              "name": "#datetime", 
+              "max_conf": 0.0
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#arrive_in", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#duration", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#from_loc", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "\u4f60\u7684\u51fa\u53d1\u5730\u662f\u54ea\u91cc?"
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#from_loc", 
+                10
+              ]
+            ], 
+            "act": "inform"
+          }
+        ], 
+        "conf": 0.6064289982145752, 
+        "utt": "\u56fd\u8d38."
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": "\u56fd\u8d38", 
+              "name": "#from_loc", 
+              "max_conf": 0.6064289982145752
+            }, 
+            {
+              "max_val": null, 
+              "name": "#to_loc", 
+              "max_conf": 0.0
+            }, 
+            {
+              "max_val": null, 
+              "name": "#datetime", 
+              "max_conf": 0.0
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#arrive_in", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#duration", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#from_loc", 
+                "\u56fd\u8d38"
+              ]
+            ], 
+            "act": "implicit_confirm"
+          }, 
+          {
+            "parameters": [
+              [
+                "#to_loc", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "\u6211\u76f8\u4fe1\u4f60\u8bf4\u7684\u662f \u56fd\u8d38. \u4f60\u8981\u53bb\u54ea\u91cc?"
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#to_loc", 
+                9
+              ]
+            ], 
+            "act": "inform"
+          }, 
+          {
+            "parameters": [
+              [
+                "#datetime", 
+                15
+              ]
+            ], 
+            "act": "inform"
+          }
+        ], 
+        "conf": 0.7732886828511975, 
+        "utt": "\u53bb \u897f\u5355. \u6211 11 \u51fa\u53d1."
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": "\u56fd\u8d38", 
+              "name": "#from_loc", 
+              "max_conf": 1.4064289982145752
+            }, 
+            {
+              "max_val": "\u897f\u5355", 
+              "name": "#to_loc", 
+              "max_conf": 0.7732886828511975
+            }, 
+            {
+              "max_val": "11", 
+              "name": "#datetime", 
+              "max_conf": 0.7732886828511975
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#arrive_in", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#duration", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#to_loc", 
+                "\u897f\u5355"
+              ]
+            ], 
+            "act": "implicit_confirm"
+          }, 
+          {
+            "parameters": [
+              [
+                "#datetime", 
+                "11"
+              ]
+            ], 
+            "act": "implicit_confirm"
+          }, 
+          {
+            "parameters": [
+              {
+                "#to_loc": "\u897f\u5355", 
+                "#from_loc": "\u56fd\u8d38", 
+                "#datetime": "11"
+              }, 
+              [
+                "#default"
+              ]
+            ], 
+            "act": "query"
+          }
+        ], 
+        "utt": "\u6211\u76f8\u4fe1\u4f60\u8bf4\u7684\u662f \u897f\u5355. \u6211\u76f8\u4fe1\u4f60\u8bf4\u7684\u662f 11. {\"QUERY\": {\"#to_loc\": \"\\u897f\\u5355\", \"#from_loc\": \"\\u56fd\\u8d38\", \"#datetime\": \"11\"}, \"GOALS\": [\"#default\"]}"
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                [
+                  "#from_loc", 
+                  10
+                ], 
+                [
+                  "#to_loc", 
+                  9
+                ], 
+                [
+                  "#datetime", 
+                  15
+                ]
+              ], 
+              {
+                "#default": 80
+              }
+            ], 
+            "act": "kb_return"
+          }
+        ], 
+        "conf": 0.702995056316854, 
+        "utt": "{\"RET\": {\"#default\": \"80\"}}"
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": true, 
+          "usr_slots": [
+            {
+              "max_val": "\u56fd\u8d38", 
+              "name": "#from_loc", 
+              "max_conf": 1.4064289982145752
+            }, 
+            {
+              "max_val": "\u897f\u5355", 
+              "name": "#to_loc", 
+              "max_conf": 1.5
+            }, 
+            {
+              "max_val": "11", 
+              "name": "#datetime", 
+              "max_conf": 1.5
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": "80"
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#arrive_in", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#duration", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              {
+                "#default": "80"
+              }
+            ], 
+            "act": "inform"
+          }, 
+          {
+            "parameters": [
+              [
+                "#happy", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "80 \u516c\u4ea4\u8f66\u53ef\u4ee5\u5e26\u4f60\u53bb\u90a3\u91cc. \u8fd8\u6709\u5176\u4ed6\u80fd\u5e2e\u5230\u4f60\u7684\u4e48?"
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#default", 
+                null
+              ]
+            ], 
+            "act": "more_request"
+          }, 
+          {
+            "parameters": [
+              [
+                "#duration", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "conf": 0.6814403753697551, 
+        "utt": "\u518d\u95ee\u4e00\u4e0b. \u7528\u591a\u957f\u65f6\u95f4\u5230\u8fbe\u76ee\u7684\u5730?"
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": "\u56fd\u8d38", 
+              "name": "#from_loc", 
+              "max_conf": 1.4064289982145752
+            }, 
+            {
+              "max_val": "\u897f\u5355", 
+              "name": "#to_loc", 
+              "max_conf": 1.5
+            }, 
+            {
+              "max_val": "11", 
+              "name": "#datetime", 
+              "max_conf": 1.5
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": true, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": "80"
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#arrive_in", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.8814403753697551, 
+              "name": "#duration", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              {
+                "#to_loc": "\u897f\u5355", 
+                "#from_loc": "\u56fd\u8d38", 
+                "#datetime": "11"
+              }, 
+              [
+                "#duration"
+              ]
+            ], 
+            "act": "query"
+          }
+        ], 
+        "utt": "{\"QUERY\": {\"#to_loc\": \"\\u897f\\u5355\", \"#from_loc\": \"\\u56fd\\u8d38\", \"#datetime\": \"11\"}, \"GOALS\": [\"#duration\"]}"
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                [
+                  "#from_loc", 
+                  10
+                ], 
+                [
+                  "#to_loc", 
+                  9
+                ], 
+                [
+                  "#datetime", 
+                  15
+                ]
+              ], 
+              {
+                "#duration": 11
+              }
+            ], 
+            "act": "kb_return"
+          }
+        ], 
+        "conf": 0.7114834748819765, 
+        "utt": "{\"RET\": {\"#duration\": \"55\"}}"
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": true, 
+          "usr_slots": [
+            {
+              "max_val": "\u56fd\u8d38", 
+              "name": "#from_loc", 
+              "max_conf": 1.4064289982145752
+            }, 
+            {
+              "max_val": "\u897f\u5355", 
+              "name": "#to_loc", 
+              "max_conf": 1.5
+            }, 
+            {
+              "max_val": "11", 
+              "name": "#datetime", 
+              "max_conf": 1.5
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": true, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": "80"
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#arrive_in", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.8814403753697551, 
+              "name": "#duration", 
+              "value": "55"
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              {
+                "#duration": "55"
+              }
+            ], 
+            "act": "inform"
+          }, 
+          {
+            "parameters": [
+              [
+                "#happy", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "\u65c5\u7a0b\u65f6\u95f4\u662f 55 \u5206\u949f. \u4f60\u5bf9\u56de\u7b54\u5185\u5bb9\u6ee1\u610f\u4e48?"
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#duration", 
+                null
+              ]
+            ], 
+            "act": "satisfy"
+          }, 
+          {
+            "parameters": [], 
+            "act": "goodbye"
+          }
+        ], 
+        "conf": 0.6599760047598296, 
+        "utt": "\u6211\u60f3\u8981\u95ee\u7684\u90fd\u95ee\u5b8c\u4e86. \u5c31\u8fd9\u6837\u5427."
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": "\u56fd\u8d38", 
+              "name": "#from_loc", 
+              "max_conf": 1.4064289982145752
+            }, 
+            {
+              "max_val": "\u897f\u5355", 
+              "name": "#to_loc", 
+              "max_conf": 1.5
+            }, 
+            {
+              "max_val": "11", 
+              "name": "#datetime", 
+              "max_conf": 1.5
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": true, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": "80"
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#arrive_in", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": true, 
+              "conf": 0.8814403753697551, 
+              "name": "#duration", 
+              "value": "55"
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [], 
+            "act": "goodbye"
+          }
+        ], 
+        "utt": "\u518d\u89c1."
+      }
+    ], 
+    [
+      {
+        "domain": "bus", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": null, 
+              "name": "#from_loc", 
+              "max_conf": 0.0
+            }, 
+            {
+              "max_val": null, 
+              "name": "#to_loc", 
+              "max_conf": 0.0
+            }, 
+            {
+              "max_val": null, 
+              "name": "#datetime", 
+              "max_conf": 0.0
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.0, 
+              "name": "#default", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#arrive_in", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#duration", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [], 
+            "act": "greet"
+          }, 
+          {
+            "parameters": [
+              [
+                "#need", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "\u4f60\u53ef\u4ee5\u95ee\u6211\u516c\u4ea4\u8f66\u7684\u4fe1\u606f. \u6709\u4ec0\u4e48\u5e2e\u5230\u4f60\u7684\u4e48?"
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [], 
+            "act": "greet"
+          }, 
+          {
+            "parameters": [
+              [
+                "#default", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "conf": 0.5903813765534597, 
+        "utt": "Hi \u6211\u8981\u627e\u4e00\u8f86\u516c\u4ea4\u8f66."
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": null, 
+              "name": "#from_loc", 
+              "max_conf": 0.0
+            }, 
+            {
+              "max_val": null, 
+              "name": "#to_loc", 
+              "max_conf": 0.0
+            }, 
+            {
+              "max_val": null, 
+              "name": "#datetime", 
+              "max_conf": 0.0
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#arrive_in", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#duration", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#from_loc", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "\u4f60\u4ece\u54ea\u91cc\u51fa\u53d1?"
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#from_loc", 
+                4
+              ]
+            ], 
+            "act": "inform"
+          }
+        ], 
+        "conf": 0.5959555754149577, 
+        "utt": "\u5728 \u82cf\u5dde\u8857."
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": "\u82cf\u5dde\u8857", 
+              "name": "#from_loc", 
+              "max_conf": 0.5959555754149577
+            }, 
+            {
+              "max_val": null, 
+              "name": "#to_loc", 
+              "max_conf": 0.0
+            }, 
+            {
+              "max_val": null, 
+              "name": "#datetime", 
+              "max_conf": 0.0
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#arrive_in", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#duration", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#to_loc", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "\u4f60\u7684\u76ee\u7684\u5730\u662f\u54ea\u91cc?"
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#to_loc", 
+                3
+              ], 
+              [
+                "#self_correct", 
+                true
+              ]
+            ], 
+            "act": "inform"
+          }, 
+          {
+            "parameters": [
+              [
+                "#from_loc", 
+                4
+              ]
+            ], 
+            "act": "inform"
+          }
+        ], 
+        "conf": 0.6914062739865892, 
+        "utt": "\u5230 \u5317\u571f\u57ce uhm \u55ef \u4e0d\u597d\u610f\u601d, \u6d77\u6dc0\u9ec4\u5e84. \u6211\u73b0\u5728\u5728 \u82cf\u5dde\u8857."
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": "\u82cf\u5dde\u8857", 
+              "name": "#from_loc", 
+              "max_conf": 0.8914062739865891
+            }, 
+            {
+              "max_val": "\u6d77\u6dc0\u9ec4\u5e84", 
+              "name": "#to_loc", 
+              "max_conf": 0.6914062739865892
+            }, 
+            {
+              "max_val": null, 
+              "name": "#datetime", 
+              "max_conf": 0.0
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#arrive_in", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#duration", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#from_loc", 
+                "\u82cf\u5dde\u8857"
+              ]
+            ], 
+            "act": "implicit_confirm"
+          }, 
+          {
+            "parameters": [
+              [
+                "#to_loc", 
+                "\u6d77\u6dc0\u9ec4\u5e84"
+              ]
+            ], 
+            "act": "implicit_confirm"
+          }, 
+          {
+            "parameters": [
+              [
+                "#datetime", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "\u6211\u76f8\u4fe1\u4f60\u8bf4\u7684\u662f \u82cf\u5dde\u8857. \u6211\u76f8\u4fe1\u4f60\u8bf4\u7684\u662f \u6d77\u6dc0\u9ec4\u5e84. \u4f60\u9700\u8981\u4ec0\u4e48\u65f6\u95f4\u6bb5\u7684\u516c\u4ea4\u8f66?"
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#datetime", 
+                0
+              ]
+            ], 
+            "act": "inform"
+          }, 
+          {
+            "parameters": [
+              [
+                "#from_loc", 
+                4
+              ]
+            ], 
+            "act": "inform"
+          }
+        ], 
+        "conf": 0.8868829982777402, 
+        "utt": "\u4eca\u5929. \u82cf\u5dde\u8857."
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": "\u82cf\u5dde\u8857", 
+              "name": "#from_loc", 
+              "max_conf": 1.7
+            }, 
+            {
+              "max_val": "\u6d77\u6dc0\u9ec4\u5e84", 
+              "name": "#to_loc", 
+              "max_conf": 1.4914062739865892
+            }, 
+            {
+              "max_val": "\u4eca\u5929", 
+              "name": "#datetime", 
+              "max_conf": 0.8868829982777402
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#arrive_in", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#duration", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#datetime", 
+                "\u4eca\u5929"
+              ]
+            ], 
+            "act": "implicit_confirm"
+          }, 
+          {
+            "parameters": [
+              {
+                "#to_loc": "\u6d77\u6dc0\u9ec4\u5e84", 
+                "#from_loc": "\u82cf\u5dde\u8857", 
+                "#datetime": "\u4eca\u5929"
+              }, 
+              [
+                "#default"
+              ]
+            ], 
+            "act": "query"
+          }
+        ], 
+        "utt": "\u6211\u76f8\u4fe1\u4f60\u8bf4\u7684\u662f \u4eca\u5929. {\"QUERY\": {\"#to_loc\": \"\\u6d77\\u6dc0\\u9ec4\\u5e84\", \"#from_loc\": \"\\u82cf\\u5dde\\u8857\", \"#datetime\": \"\\u4eca\\u5929\"}, \"GOALS\": [\"#default\"]}"
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                [
+                  "#from_loc", 
+                  4
+                ], 
+                [
+                  "#to_loc", 
+                  3
+                ], 
+                [
+                  "#datetime", 
+                  0
+                ]
+              ], 
+              {
+                "#default": 47
+              }
+            ], 
+            "act": "kb_return"
+          }
+        ], 
+        "conf": 0.8379027957443974, 
+        "utt": "{\"RET\": {\"#default\": \"47\"}}"
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": true, 
+          "usr_slots": [
+            {
+              "max_val": "\u82cf\u5dde\u8857", 
+              "name": "#from_loc", 
+              "max_conf": 1.7
+            }, 
+            {
+              "max_val": "\u6d77\u6dc0\u9ec4\u5e84", 
+              "name": "#to_loc", 
+              "max_conf": 1.4914062739865892
+            }, 
+            {
+              "max_val": "\u4eca\u5929", 
+              "name": "#datetime", 
+              "max_conf": 1.5
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": "47"
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#arrive_in", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#duration", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              {
+                "#default": "47"
+              }
+            ], 
+            "act": "inform"
+          }, 
+          {
+            "parameters": [
+              [
+                "#happy", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "47 \u516c\u4ea4\u8f66\u53ef\u4ee5\u5e26\u4f60\u53bb\u90a3\u91cc. \u8fd8\u6709\u5176\u4ed6\u80fd\u5e2e\u5230\u4f60\u7684\u4e48?"
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#default", 
+                null
+              ]
+            ], 
+            "act": "more_request"
+          }, 
+          {
+            "parameters": [
+              [
+                "#duration", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "conf": 0.5788894276224495, 
+        "utt": "\u7b49\u7b49,\u8fd8\u6709\u4e00\u4e2a\u95ee\u9898. \u8def\u4e0a\u7528\u65f6\u591a\u957f?."
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": "\u82cf\u5dde\u8857", 
+              "name": "#from_loc", 
+              "max_conf": 1.7
+            }, 
+            {
+              "max_val": "\u6d77\u6dc0\u9ec4\u5e84", 
+              "name": "#to_loc", 
+              "max_conf": 1.4914062739865892
+            }, 
+            {
+              "max_val": "\u4eca\u5929", 
+              "name": "#datetime", 
+              "max_conf": 1.5
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": true, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": "47"
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#arrive_in", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.7788894276224496, 
+              "name": "#duration", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              {
+                "#to_loc": "\u6d77\u6dc0\u9ec4\u5e84", 
+                "#from_loc": "\u82cf\u5dde\u8857", 
+                "#datetime": "\u4eca\u5929"
+              }, 
+              [
+                "#duration"
+              ]
+            ], 
+            "act": "query"
+          }
+        ], 
+        "utt": "{\"QUERY\": {\"#to_loc\": \"\\u6d77\\u6dc0\\u9ec4\\u5e84\", \"#from_loc\": \"\\u82cf\\u5dde\\u8857\", \"#datetime\": \"\\u4eca\\u5929\"}, \"GOALS\": [\"#duration\"]}"
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                [
+                  "#from_loc", 
+                  4
+                ], 
+                [
+                  "#to_loc", 
+                  3
+                ], 
+                [
+                  "#datetime", 
+                  0
+                ]
+              ], 
+              {
+                "#duration": 7
+              }
+            ], 
+            "act": "kb_return"
+          }
+        ], 
+        "conf": 0.8534698838219161, 
+        "utt": "{\"RET\": {\"#duration\": \"35\"}}"
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": true, 
+          "usr_slots": [
+            {
+              "max_val": "\u82cf\u5dde\u8857", 
+              "name": "#from_loc", 
+              "max_conf": 1.7
+            }, 
+            {
+              "max_val": "\u6d77\u6dc0\u9ec4\u5e84", 
+              "name": "#to_loc", 
+              "max_conf": 1.4914062739865892
+            }, 
+            {
+              "max_val": "\u4eca\u5929", 
+              "name": "#datetime", 
+              "max_conf": 1.5
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": true, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": "47"
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#arrive_in", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.7788894276224496, 
+              "name": "#duration", 
+              "value": "35"
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              {
+                "#duration": "35"
+              }
+            ], 
+            "act": "inform"
+          }, 
+          {
+            "parameters": [
+              [
+                "#happy", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "\u65c5\u7a0b\u65f6\u95f4\u662f 35 \u5206\u949f. \u8fd8\u6709\u95ee\u9898\u4e48?"
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#duration", 
+                null
+              ]
+            ], 
+            "act": "satisfy"
+          }, 
+          {
+            "parameters": [], 
+            "act": "goodbye"
+          }
+        ], 
+        "conf": 0.527536358211586, 
+        "utt": "\u6ca1\u6709\u95ee\u9898\u4e86. \u518d\u89c1."
+      }, 
+      {
+        "domain": "bus", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": "\u82cf\u5dde\u8857", 
+              "name": "#from_loc", 
+              "max_conf": 1.7
+            }, 
+            {
+              "max_val": "\u6d77\u6dc0\u9ec4\u5e84", 
+              "name": "#to_loc", 
+              "max_conf": 1.4914062739865892
+            }, 
+            {
+              "max_val": "\u4eca\u5929", 
+              "name": "#datetime", 
+              "max_conf": 1.5
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": true, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": "47"
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#arrive_in", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": true, 
+              "conf": 0.7788894276224496, 
+              "name": "#duration", 
+              "value": "35"
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [], 
+            "act": "goodbye"
+          }
+        ], 
+        "utt": "\u56de\u89c1."
+      }
+    ]
+  ]
+}

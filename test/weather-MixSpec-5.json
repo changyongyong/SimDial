@@ -1,0 +1,3896 @@
+{
+  "meta": {
+    "name": "weather", 
+    "usr_slots": [
+      [
+        "loc", 
+        "location city", 
+        [
+          "\u5317\u4eac", 
+          "\u4e0a\u6d77", 
+          "\u5e7f\u5dde", 
+          "\u6df1\u5733", 
+          "\u53a6\u95e8", 
+          "\u5357\u4eac", 
+          "\u676d\u5dde", 
+          "\u5f90\u5dde", 
+          "\u5927\u8fde", 
+          "\u9752\u5c9b"
+        ]
+      ], 
+      [
+        "datetime", 
+        "which time's weather?", 
+        [
+          "\u4eca\u5929", 
+          "\u660e\u5929", 
+          "\u4eca\u665a", 
+          "\u4eca\u6668", 
+          "\u540e\u5929", 
+          "\u5468\u672b"
+        ]
+      ]
+    ], 
+    "sys_slots": [
+      [
+        "temperature", 
+        "the temperature", 
+        [
+          "20", 
+          "22", 
+          "24", 
+          "26", 
+          "28", 
+          "30", 
+          "32", 
+          "34", 
+          "36", 
+          "38"
+        ]
+      ], 
+      [
+        "weather_type", 
+        "the type", 
+        [
+          "\u4e0b\u96e8", 
+          "\u4e0b\u96ea", 
+          "\u522e\u98ce", 
+          "\u6674\u6717", 
+          "\u96fe\u973e", 
+          "\u591a\u4e91"
+        ]
+      ]
+    ], 
+    "greet": "\u4f60\u53ef\u4ee5\u95ee\u6211\u5929\u6c14\u4fe1\u606f.", 
+    "nlg_spec": {
+      "default": {
+        "inform": [
+          "\u4f60\u7684\u5929\u6c14\u9884\u62a5 %s \u5728\u8fd9\u91cc."
+        ], 
+        "request": [
+          "\u5929\u6c14\u600e\u4e48\u6837?.", 
+          "\u5929\u6c14\u5c06\u4f1a\u662f?"
+        ]
+      }, 
+      "loc": {
+        "inform": [
+          "\u6211\u73b0\u5728\u5728 %s.", 
+          "%s.", 
+          "%s \u7684\u5929\u6c14.", 
+          "%s \u7684.", 
+          "\u662f %s."
+        ], 
+        "request": [
+          "\u4f60\u60f3\u77e5\u9053\u90a3\u4e2a\u57ce\u5e02\u7684?", 
+          "\u54ea\u91cc\u7684?"
+        ]
+      }, 
+      "weather_type": {
+        "inform": [
+          "\u5929\u6c14\u662f %s.", 
+          "\u5929\u6c14\u4f1a\u662f %s."
+        ], 
+        "request": [
+          "\u5929\u6c14\u600e\u6837?.", 
+          "\u5929\u6c14\u5982\u4f55"
+        ], 
+        "yn_question": {
+          "\u522e\u98ce": [
+            "\u5929\u6c14\u662f \u522e\u98ce \u4e48?"
+          ], 
+          "\u4e0b\u96ea": [
+            "\u5929\u6c14\u662f \u4e0b\u96ea \u4e48?"
+          ], 
+          "\u4e0b\u96e8": [
+            "\u5929\u6c14\u662f \u4e0b\u96e8 \u4e48?"
+          ], 
+          "\u6674\u6717": [
+            "\u5929\u6c14\u662f \u6674\u6717 \u4e48?"
+          ], 
+          "\u96fe\u973e": [
+            "\u5929\u6c14\u662f \u96fe\u973e \u4e48?"
+          ], 
+          "\u591a\u4e91": [
+            "\u5929\u6c14\u662f \u591a\u4e91 \u4e48?"
+          ]
+        }
+      }, 
+      "temperature": {
+        "inform": [
+          "\u6c14\u6e29\u662f %s.", 
+          "\u90a3\u65f6\u7684\u6c14\u6e29\u662f %s."
+        ], 
+        "request": [
+          "\u6c14\u6e29\u662f?", 
+          "\u6c14\u6e29\u662f\u591a\u5c11?"
+        ]
+      }, 
+      "datetime": {
+        "inform": [
+          "\u65e5\u671f\u662f %s", 
+          "%s.", 
+          "\u6211\u60f3\u77e5\u9053 %s \u7684."
+        ], 
+        "request": [
+          "\u4f60\u60f3\u77e5\u9053\u54ea\u5929\u7684?", 
+          "\u65e5\u671f\u662f?"
+        ]
+      }
+    }, 
+    "db_size": 40
+  }, 
+  "dialogs": [
+    [
+      {
+        "domain": "weather", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": null, 
+              "name": "#loc", 
+              "max_conf": 0.0
+            }, 
+            {
+              "max_val": null, 
+              "name": "#datetime", 
+              "max_conf": 0.0
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.0, 
+              "name": "#default", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#temperature", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#weather_type", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [], 
+            "act": "greet"
+          }, 
+          {
+            "parameters": [
+              [
+                "#need", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "\u4f60\u53ef\u4ee5\u95ee\u6211\u5929\u6c14\u4fe1\u606f. \u6709\u4ec0\u4e48\u5e2e\u5230\u4f60\u7684\u4e48?"
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [], 
+            "act": "greet"
+          }, 
+          {
+            "parameters": [
+              [
+                "#default", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "conf": 0.7057029099741986, 
+        "utt": "\u4ec0\u4e48? \u5929\u6c14\u600e\u4e48\u6837?."
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": null, 
+              "name": "#loc", 
+              "max_conf": 0.0
+            }, 
+            {
+              "max_val": null, 
+              "name": "#datetime", 
+              "max_conf": 0.0
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#temperature", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#weather_type", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#loc", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "\u4f60\u60f3\u77e5\u9053\u90a3\u4e2a\u57ce\u5e02\u7684?"
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#loc", 
+                1
+              ]
+            ], 
+            "act": "inform"
+          }
+        ], 
+        "conf": 0.47616306706229716, 
+        "utt": "\u4e0a\u6d77."
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": "\u4e0a\u6d77", 
+              "name": "#loc", 
+              "max_conf": 0.47616306706229716
+            }, 
+            {
+              "max_val": null, 
+              "name": "#datetime", 
+              "max_conf": 0.0
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#temperature", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#weather_type", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#datetime", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "\u4f60\u60f3\u77e5\u9053\u54ea\u5929\u7684?"
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#datetime", 
+                1
+              ]
+            ], 
+            "act": "inform"
+          }
+        ], 
+        "conf": 0.5897635434079939, 
+        "utt": "\u6211\u60f3\u77e5\u9053 \u660e\u5929 \u7684."
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": "\u4e0a\u6d77", 
+              "name": "#loc", 
+              "max_conf": 0.47616306706229716
+            }, 
+            {
+              "max_val": "\u660e\u5929", 
+              "name": "#datetime", 
+              "max_conf": 0.5897635434079939
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#temperature", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#weather_type", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#loc", 
+                "\u4e0a\u6d77"
+              ]
+            ], 
+            "act": "explicit_confirm"
+          }
+        ], 
+        "utt": "Do you mean \u4e0a\u6d77?"
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#loc", 
+                1
+              ]
+            ], 
+            "act": "disconfirm"
+          }
+        ], 
+        "conf": 0.8741592931347959, 
+        "utt": "\u9519\u4e86."
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": "\u4e0a\u6d77", 
+              "name": "#loc", 
+              "max_conf": 0.0
+            }, 
+            {
+              "max_val": "\u660e\u5929", 
+              "name": "#datetime", 
+              "max_conf": 0.5897635434079939
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#temperature", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#weather_type", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#loc", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "\u54ea\u91cc\u7684?"
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#loc", 
+                null
+              ]
+            ], 
+            "act": "inform"
+          }, 
+          {
+            "parameters": [
+              [
+                "#datetime", 
+                0
+              ]
+            ], 
+            "act": "inform"
+          }
+        ], 
+        "conf": 0.7149305388357936, 
+        "utt": "\u6211\u4e0d\u5173\u5fc3. \u4eca\u5929."
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": null, 
+              "name": "#loc", 
+              "max_conf": 0.7149305388357936
+            }, 
+            {
+              "max_val": "\u4eca\u5929", 
+              "name": "#datetime", 
+              "max_conf": 0.7149305388357936
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#temperature", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#weather_type", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#loc", 
+                "dont_care"
+              ]
+            ], 
+            "act": "implicit_confirm"
+          }, 
+          {
+            "parameters": [
+              [
+                "#datetime", 
+                "\u4eca\u5929"
+              ]
+            ], 
+            "act": "implicit_confirm"
+          }, 
+          {
+            "parameters": [
+              {
+                "#datetime": "\u4eca\u5929", 
+                "#loc": "dont_care"
+              }, 
+              [
+                "#default"
+              ]
+            ], 
+            "act": "query"
+          }
+        ], 
+        "utt": "\u597d\u7684, \u4e0d\u7528\u5173\u5fc3. \u6211\u76f8\u4fe1\u4f60\u8bf4\u7684\u662f \u4eca\u5929. {\"QUERY\": {\"#datetime\": \"\\u4eca\\u5929\", \"#loc\": \"dont_care\"}, \"GOALS\": [\"#default\"]}"
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                [
+                  "#loc", 
+                  null
+                ], 
+                [
+                  "#datetime", 
+                  0
+                ]
+              ], 
+              {
+                "#default": 7
+              }
+            ], 
+            "act": "kb_return"
+          }
+        ], 
+        "conf": 0.4522483101427677, 
+        "utt": "{\"RET\": {\"#default\": \"7\"}}"
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": true, 
+          "usr_slots": [
+            {
+              "max_val": null, 
+              "name": "#loc", 
+              "max_conf": 1.5
+            }, 
+            {
+              "max_val": "\u4eca\u5929", 
+              "name": "#datetime", 
+              "max_conf": 1.5
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": "7"
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#temperature", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#weather_type", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              {
+                "#default": "7"
+              }
+            ], 
+            "act": "inform"
+          }, 
+          {
+            "parameters": [
+              [
+                "#happy", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "\u4f60\u7684\u5929\u6c14\u9884\u62a5 7 \u5728\u8fd9\u91cc. \u8fd8\u6709\u5176\u4ed6\u80fd\u5e2e\u5230\u4f60\u7684\u4e48?"
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#default", 
+                null
+              ]
+            ], 
+            "act": "more_request"
+          }, 
+          {
+            "parameters": [
+              [
+                "#temperature", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "conf": 0.6861325183477925, 
+        "utt": "\u518d\u95ee\u4e00\u4e0b. \u6c14\u6e29\u662f?"
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": null, 
+              "name": "#loc", 
+              "max_conf": 1.5
+            }, 
+            {
+              "max_val": "\u4eca\u5929", 
+              "name": "#datetime", 
+              "max_conf": 1.5
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": true, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": "7"
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.8861325183477926, 
+              "name": "#temperature", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#weather_type", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              {
+                "#datetime": "\u4eca\u5929", 
+                "#loc": "dont_care"
+              }, 
+              [
+                "#temperature"
+              ]
+            ], 
+            "act": "query"
+          }
+        ], 
+        "utt": "{\"QUERY\": {\"#datetime\": \"\\u4eca\\u5929\", \"#loc\": \"dont_care\"}, \"GOALS\": [\"#temperature\"]}"
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                [
+                  "#loc", 
+                  null
+                ], 
+                [
+                  "#datetime", 
+                  0
+                ]
+              ], 
+              {
+                "#temperature": 8
+              }
+            ], 
+            "act": "kb_return"
+          }
+        ], 
+        "conf": 0.5116153413952849, 
+        "utt": "{\"RET\": {\"#temperature\": \"36\"}}"
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": true, 
+          "usr_slots": [
+            {
+              "max_val": null, 
+              "name": "#loc", 
+              "max_conf": 1.5
+            }, 
+            {
+              "max_val": "\u4eca\u5929", 
+              "name": "#datetime", 
+              "max_conf": 1.5
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": true, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": "7"
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.8861325183477926, 
+              "name": "#temperature", 
+              "value": "36"
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#weather_type", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              {
+                "#temperature": "36"
+              }
+            ], 
+            "act": "inform"
+          }, 
+          {
+            "parameters": [
+              [
+                "#happy", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "\u90a3\u65f6\u7684\u6c14\u6e29\u662f 36. \u8fd8\u6709\u95ee\u9898\u4e48?"
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#temperature", 
+                null
+              ]
+            ], 
+            "act": "satisfy"
+          }, 
+          {
+            "parameters": [], 
+            "act": "goodbye"
+          }
+        ], 
+        "conf": 0.42486857525365596, 
+        "utt": "\u6211\u60f3\u8981\u95ee\u7684\u90fd\u95ee\u5b8c\u4e86. \u518d\u89c1."
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": null, 
+              "name": "#loc", 
+              "max_conf": 1.5
+            }, 
+            {
+              "max_val": "\u4eca\u5929", 
+              "name": "#datetime", 
+              "max_conf": 1.5
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": true, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": "7"
+            }, 
+            {
+              "expected": null, 
+              "delivered": true, 
+              "conf": 0.8861325183477926, 
+              "name": "#temperature", 
+              "value": "36"
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#weather_type", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [], 
+            "act": "goodbye"
+          }
+        ], 
+        "utt": "\u518d\u89c1."
+      }
+    ], 
+    [
+      {
+        "domain": "weather", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": null, 
+              "name": "#loc", 
+              "max_conf": 0.0
+            }, 
+            {
+              "max_val": null, 
+              "name": "#datetime", 
+              "max_conf": 0.0
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.0, 
+              "name": "#default", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#temperature", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#weather_type", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [], 
+            "act": "greet"
+          }, 
+          {
+            "parameters": [
+              [
+                "#need", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "\u4f60\u53ef\u4ee5\u95ee\u6211\u5929\u6c14\u4fe1\u606f. \u6709\u4ec0\u4e48\u53ef\u4ee5\u5e2e\u5230\u4f60\u4e48?"
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [], 
+            "act": "greet"
+          }, 
+          {
+            "parameters": [
+              [
+                "#default", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "conf": 0.5988964269589635, 
+        "utt": "Hi \u5929\u6c14\u5c06\u4f1a\u662f?"
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": null, 
+              "name": "#loc", 
+              "max_conf": 0.0
+            }, 
+            {
+              "max_val": null, 
+              "name": "#datetime", 
+              "max_conf": 0.0
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#temperature", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#weather_type", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#loc", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "\u4f60\u60f3\u77e5\u9053\u90a3\u4e2a\u57ce\u5e02\u7684?"
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#loc", 
+                8
+              ]
+            ], 
+            "act": "inform"
+          }
+        ], 
+        "conf": 0.7850761574131132, 
+        "utt": "\u662f \u5927\u8fde."
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": "\u5927\u8fde", 
+              "name": "#loc", 
+              "max_conf": 0.7850761574131132
+            }, 
+            {
+              "max_val": null, 
+              "name": "#datetime", 
+              "max_conf": 0.0
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#temperature", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#weather_type", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#loc", 
+                "\u5927\u8fde"
+              ]
+            ], 
+            "act": "implicit_confirm"
+          }, 
+          {
+            "parameters": [
+              [
+                "#datetime", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "\u6211\u76f8\u4fe1\u4f60\u8bf4\u7684\u662f \u5927\u8fde. \u4f60\u60f3\u77e5\u9053\u54ea\u5929\u7684?"
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#loc", 
+                8
+              ]
+            ], 
+            "act": "disconfirm"
+          }, 
+          {
+            "parameters": [
+              [
+                "#loc", 
+                7
+              ]
+            ], 
+            "act": "inform"
+          }, 
+          {
+            "parameters": [
+              [
+                "#datetime", 
+                3
+              ], 
+              [
+                "#self_correct", 
+                true
+              ]
+            ], 
+            "act": "inform"
+          }
+        ], 
+        "conf": 0.6493883683826909, 
+        "utt": "\u662f\u9519\u7684. \u5f90\u5dde uhm yeah \u662f\u9519\u7684. \u5f90\u5dde \u7684\u5929\u6c14. \u65e5\u671f\u662f \u660e\u5929 \u5965 \u7b49\u4e0b, \u6211\u60f3\u77e5\u9053 \u4eca\u6668 \u7684."
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": "\u5f90\u5dde", 
+              "name": "#loc", 
+              "max_conf": 0.6493883683826909
+            }, 
+            {
+              "max_val": "\u4eca\u6668", 
+              "name": "#datetime", 
+              "max_conf": 0.6493883683826909
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#temperature", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#weather_type", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#loc", 
+                "\u5f90\u5dde"
+              ]
+            ], 
+            "act": "implicit_confirm"
+          }, 
+          {
+            "parameters": [
+              [
+                "#datetime", 
+                "\u4eca\u6668"
+              ]
+            ], 
+            "act": "implicit_confirm"
+          }, 
+          {
+            "parameters": [
+              {
+                "#datetime": "\u4eca\u6668", 
+                "#loc": "\u5f90\u5dde"
+              }, 
+              [
+                "#default"
+              ]
+            ], 
+            "act": "query"
+          }
+        ], 
+        "utt": "\u6211\u76f8\u4fe1\u4f60\u8bf4\u7684\u662f \u5f90\u5dde. \u6211\u76f8\u4fe1\u4f60\u8bf4\u7684\u662f \u4eca\u6668. {\"QUERY\": {\"#datetime\": \"\\u4eca\\u6668\", \"#loc\": \"\\u5f90\\u5dde\"}, \"GOALS\": [\"#default\"]}"
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                [
+                  "#loc", 
+                  7
+                ], 
+                [
+                  "#datetime", 
+                  3
+                ]
+              ], 
+              {
+                "#default": 8
+              }
+            ], 
+            "act": "kb_return"
+          }
+        ], 
+        "conf": 0.9211737284769703, 
+        "utt": "{\"RET\": {\"#default\": \"8\"}}"
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": true, 
+          "usr_slots": [
+            {
+              "max_val": "\u5f90\u5dde", 
+              "name": "#loc", 
+              "max_conf": 1.449388368382691
+            }, 
+            {
+              "max_val": "\u4eca\u6668", 
+              "name": "#datetime", 
+              "max_conf": 1.449388368382691
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": "8"
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#temperature", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#weather_type", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              {
+                "#default": "8"
+              }
+            ], 
+            "act": "inform"
+          }, 
+          {
+            "parameters": [
+              [
+                "#happy", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "\u4f60\u7684\u5929\u6c14\u9884\u62a5 8 \u5728\u8fd9\u91cc. \u8fd8\u6709\u95ee\u9898\u4e48?"
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#default", 
+                null
+              ]
+            ], 
+            "act": "new_search"
+          }, 
+          {
+            "parameters": [
+              [
+                "#datetime", 
+                null
+              ]
+            ], 
+            "act": "inform"
+          }
+        ], 
+        "conf": 0.8622613139867812, 
+        "utt": "\u65b0\u95ee\u9898. \u6211\u4e0d\u5173\u5fc3."
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": "\u5927\u8fde", 
+              "name": "#loc", 
+              "max_conf": 0.4
+            }, 
+            {
+              "max_val": null, 
+              "name": "#datetime", 
+              "max_conf": 0.8622613139867812
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.0, 
+              "name": "#default", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0, 
+              "name": "#temperature", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0, 
+              "name": "#weather_type", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#datetime", 
+                "dont_care"
+              ]
+            ], 
+            "act": "implicit_confirm"
+          }, 
+          {
+            "parameters": [
+              [
+                "#loc", 
+                "\u5927\u8fde"
+              ]
+            ], 
+            "act": "explicit_confirm"
+          }
+        ], 
+        "utt": "\u597d\u7684, \u4e0d\u7528\u5173\u5fc3. Do you mean \u5927\u8fde?"
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#datetime", 
+                null
+              ]
+            ], 
+            "act": "disconfirm"
+          }, 
+          {
+            "parameters": [
+              [
+                "#loc", 
+                8
+              ]
+            ], 
+            "act": "disconfirm"
+          }
+        ], 
+        "conf": 0.9724620641045085, 
+        "utt": "\u662f\u9519\u7684. \u4e0d\u662f."
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": "\u5f90\u5dde", 
+              "name": "#loc", 
+              "max_conf": 0.4
+            }, 
+            {
+              "max_val": null, 
+              "name": "#datetime", 
+              "max_conf": 0.7440606974327862
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.0, 
+              "name": "#default", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0, 
+              "name": "#temperature", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0, 
+              "name": "#weather_type", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#datetime", 
+                "dont_care"
+              ]
+            ], 
+            "act": "implicit_confirm"
+          }, 
+          {
+            "parameters": [
+              [
+                "#loc", 
+                "\u5f90\u5dde"
+              ]
+            ], 
+            "act": "explicit_confirm"
+          }
+        ], 
+        "utt": "\u597d\u7684, \u4f60\u4e0d\u5173\u5fc3. Do you mean \u5f90\u5dde?"
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#datetime", 
+                null
+              ]
+            ], 
+            "act": "disconfirm"
+          }, 
+          {
+            "parameters": [
+              [
+                "#loc", 
+                7
+              ]
+            ], 
+            "act": "confirm"
+          }
+        ], 
+        "conf": 0.99, 
+        "utt": "\u9519\u4e86. \u55ef."
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": "\u5f90\u5dde", 
+              "name": "#loc", 
+              "max_conf": 1.1840000000000002
+            }, 
+            {
+              "max_val": null, 
+              "name": "#datetime", 
+              "max_conf": 0.716
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.0, 
+              "name": "#default", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0, 
+              "name": "#temperature", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0, 
+              "name": "#weather_type", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#datetime", 
+                "dont_care"
+              ]
+            ], 
+            "act": "implicit_confirm"
+          }, 
+          {
+            "parameters": [
+              {
+                "#datetime": "dont_care", 
+                "#loc": "\u5f90\u5dde"
+              }, 
+              [
+                "#default"
+              ]
+            ], 
+            "act": "query"
+          }
+        ], 
+        "utt": "\u597d\u7684, \u4f60\u4e0d\u5173\u5fc3. {\"QUERY\": {\"#datetime\": \"dont_care\", \"#loc\": \"\\u5f90\\u5dde\"}, \"GOALS\": [\"#default\"]}"
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#datetime", 
+                null
+              ]
+            ], 
+            "act": "disconfirm"
+          }, 
+          {
+            "parameters": [
+              [
+                "#datetime", 
+                0
+              ]
+            ], 
+            "act": "inform"
+          }, 
+          {
+            "parameters": [
+              [
+                [
+                  "#loc", 
+                  7
+                ], 
+                [
+                  "#datetime", 
+                  null
+                ]
+              ], 
+              {
+                "#default": 30
+              }
+            ], 
+            "act": "kb_return"
+          }
+        ], 
+        "conf": 0.99, 
+        "utt": "\u9519. \u4eca\u5929. uhm yeah \u9519. \u4eca\u5929. {\"RET\": {\"#default\": \"30\"}}"
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": true, 
+          "usr_slots": [
+            {
+              "max_val": "\u5f90\u5dde", 
+              "name": "#loc", 
+              "max_conf": 1.1840000000000002
+            }, 
+            {
+              "max_val": "\u4eca\u5929", 
+              "name": "#datetime", 
+              "max_conf": 0.99
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.0, 
+              "name": "#default", 
+              "value": "30"
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0, 
+              "name": "#temperature", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0, 
+              "name": "#weather_type", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              {
+                "#default": "30"
+              }
+            ], 
+            "act": "inform"
+          }, 
+          {
+            "parameters": [
+              [
+                "#happy", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "\u4f60\u7684\u5929\u6c14\u9884\u62a5 30 \u5728\u8fd9\u91cc. \u8fd8\u6709\u95ee\u9898\u4e48?"
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#datetime", 
+                0
+              ]
+            ], 
+            "act": "inform"
+          }
+        ], 
+        "conf": 0.7243611267109924, 
+        "utt": "\u4eca\u5929."
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": "\u5f90\u5dde", 
+              "name": "#loc", 
+              "max_conf": 1.1840000000000002
+            }, 
+            {
+              "max_val": "\u4eca\u5929", 
+              "name": "#datetime", 
+              "max_conf": 1.19
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.0, 
+              "name": "#default", 
+              "value": "30"
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0, 
+              "name": "#temperature", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0, 
+              "name": "#weather_type", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              {
+                "#datetime": "\u4eca\u5929", 
+                "#loc": "\u5f90\u5dde"
+              }, 
+              [
+                "#default"
+              ]
+            ], 
+            "act": "query"
+          }
+        ], 
+        "utt": "{\"QUERY\": {\"#datetime\": \"\\u4eca\\u5929\", \"#loc\": \"\\u5f90\\u5dde\"}, \"GOALS\": [\"#default\"]}"
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                [
+                  "#loc", 
+                  7
+                ], 
+                [
+                  "#datetime", 
+                  0
+                ]
+              ], 
+              {
+                "#default": 20
+              }
+            ], 
+            "act": "kb_return"
+          }
+        ], 
+        "conf": 0.8874628103150838, 
+        "utt": "{\"RET\": {\"#default\": \"20\"}}"
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": true, 
+          "usr_slots": [
+            {
+              "max_val": "\u5f90\u5dde", 
+              "name": "#loc", 
+              "max_conf": 1.1840000000000002
+            }, 
+            {
+              "max_val": "\u4eca\u5929", 
+              "name": "#datetime", 
+              "max_conf": 1.19
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.0, 
+              "name": "#default", 
+              "value": "20"
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0, 
+              "name": "#temperature", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0, 
+              "name": "#weather_type", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              {
+                "#default": "20"
+              }
+            ], 
+            "act": "inform"
+          }, 
+          {
+            "parameters": [
+              [
+                "#happy", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "\u4f60\u7684\u5929\u6c14\u9884\u62a5 20 \u5728\u8fd9\u91cc. \u8fd8\u6709\u5176\u4ed6\u80fd\u5e2e\u5230\u4f60\u7684\u4e48?"
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#default", 
+                null
+              ]
+            ], 
+            "act": "more_request"
+          }, 
+          {
+            "parameters": [
+              [
+                "#temperature", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "conf": 0.7931890171963342, 
+        "utt": "\u518d\u95ee\u4e00\u4e0b. \u6c14\u6e29\u662f\u591a\u5c11?"
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": "\u5f90\u5dde", 
+              "name": "#loc", 
+              "max_conf": 1.1840000000000002
+            }, 
+            {
+              "max_val": "\u4eca\u5929", 
+              "name": "#datetime", 
+              "max_conf": 1.19
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": true, 
+              "conf": 1.0, 
+              "name": "#default", 
+              "value": "20"
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.9931890171963342, 
+              "name": "#temperature", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0, 
+              "name": "#weather_type", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              {
+                "#datetime": "\u4eca\u5929", 
+                "#loc": "\u5f90\u5dde"
+              }, 
+              [
+                "#temperature"
+              ]
+            ], 
+            "act": "query"
+          }
+        ], 
+        "utt": "{\"QUERY\": {\"#datetime\": \"\\u4eca\\u5929\", \"#loc\": \"\\u5f90\\u5dde\"}, \"GOALS\": [\"#temperature\"]}"
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                [
+                  "#loc", 
+                  7
+                ], 
+                [
+                  "#datetime", 
+                  0
+                ]
+              ], 
+              {
+                "#temperature": 8
+              }
+            ], 
+            "act": "kb_return"
+          }
+        ], 
+        "conf": 0.8485860265785176, 
+        "utt": "{\"RET\": {\"#temperature\": \"36\"}}"
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": true, 
+          "usr_slots": [
+            {
+              "max_val": "\u5f90\u5dde", 
+              "name": "#loc", 
+              "max_conf": 1.1840000000000002
+            }, 
+            {
+              "max_val": "\u4eca\u5929", 
+              "name": "#datetime", 
+              "max_conf": 1.19
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": true, 
+              "conf": 1.0, 
+              "name": "#default", 
+              "value": "20"
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.9931890171963342, 
+              "name": "#temperature", 
+              "value": "36"
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0, 
+              "name": "#weather_type", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              {
+                "#temperature": "36"
+              }
+            ], 
+            "act": "inform"
+          }, 
+          {
+            "parameters": [
+              [
+                "#happy", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "\u6c14\u6e29\u662f 36. \u8fd8\u6709\u5176\u4ed6\u80fd\u5e2e\u5230\u4f60\u7684\u4e48?"
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#temperature", 
+                null
+              ]
+            ], 
+            "act": "satisfy"
+          }, 
+          {
+            "parameters": [], 
+            "act": "goodbye"
+          }
+        ], 
+        "conf": 0.8416810134877141, 
+        "utt": "\u6211\u60f3\u8981\u95ee\u7684\u90fd\u95ee\u5b8c\u4e86. \u518d\u89c1."
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": "\u5f90\u5dde", 
+              "name": "#loc", 
+              "max_conf": 1.1840000000000002
+            }, 
+            {
+              "max_val": "\u4eca\u5929", 
+              "name": "#datetime", 
+              "max_conf": 1.19
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": true, 
+              "conf": 1.0, 
+              "name": "#default", 
+              "value": "20"
+            }, 
+            {
+              "expected": null, 
+              "delivered": true, 
+              "conf": 0.9931890171963342, 
+              "name": "#temperature", 
+              "value": "36"
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0, 
+              "name": "#weather_type", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [], 
+            "act": "goodbye"
+          }
+        ], 
+        "utt": "\u518d\u89c1."
+      }
+    ], 
+    [
+      {
+        "domain": "weather", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": null, 
+              "name": "#loc", 
+              "max_conf": 0.0
+            }, 
+            {
+              "max_val": null, 
+              "name": "#datetime", 
+              "max_conf": 0.0
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.0, 
+              "name": "#default", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#temperature", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#weather_type", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [], 
+            "act": "greet"
+          }, 
+          {
+            "parameters": [
+              [
+                "#need", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "\u4f60\u53ef\u4ee5\u95ee\u6211\u5929\u6c14\u4fe1\u606f. \u6709\u4ec0\u4e48\u5e2e\u5230\u4f60\u7684\u4e48?"
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [], 
+            "act": "greet"
+          }, 
+          {
+            "parameters": [
+              [
+                "#default", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "conf": 0.6624687380327393, 
+        "utt": "\u4ec0\u4e48? \u5929\u6c14\u600e\u4e48\u6837?."
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": null, 
+              "name": "#loc", 
+              "max_conf": 0.0
+            }, 
+            {
+              "max_val": null, 
+              "name": "#datetime", 
+              "max_conf": 0.0
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#temperature", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#weather_type", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#loc", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "\u4f60\u60f3\u77e5\u9053\u90a3\u4e2a\u57ce\u5e02\u7684?"
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#loc", 
+                0
+              ]
+            ], 
+            "act": "inform"
+          }
+        ], 
+        "conf": 0.6144163443895119, 
+        "utt": "\u5317\u4eac."
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": "\u5317\u4eac", 
+              "name": "#loc", 
+              "max_conf": 0.6144163443895119
+            }, 
+            {
+              "max_val": null, 
+              "name": "#datetime", 
+              "max_conf": 0.0
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#temperature", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#weather_type", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#loc", 
+                "\u5317\u4eac"
+              ]
+            ], 
+            "act": "implicit_confirm"
+          }, 
+          {
+            "parameters": [
+              [
+                "#datetime", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "\u6211\u76f8\u4fe1\u4f60\u8bf4\u7684\u662f \u5317\u4eac. \u4f60\u60f3\u77e5\u9053\u54ea\u5929\u7684?"
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#datetime", 
+                0
+              ]
+            ], 
+            "act": "inform"
+          }
+        ], 
+        "conf": 0.809460393676203, 
+        "utt": "\u4eca\u5929."
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": "\u5317\u4eac", 
+              "name": "#loc", 
+              "max_conf": 1.414416344389512
+            }, 
+            {
+              "max_val": "\u4eca\u5929", 
+              "name": "#datetime", 
+              "max_conf": 0.809460393676203
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#temperature", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#weather_type", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#datetime", 
+                "\u4eca\u5929"
+              ]
+            ], 
+            "act": "implicit_confirm"
+          }, 
+          {
+            "parameters": [
+              {
+                "#datetime": "\u4eca\u5929", 
+                "#loc": "\u5317\u4eac"
+              }, 
+              [
+                "#default"
+              ]
+            ], 
+            "act": "query"
+          }
+        ], 
+        "utt": "\u6211\u76f8\u4fe1\u4f60\u8bf4\u7684\u662f \u4eca\u5929. {\"QUERY\": {\"#datetime\": \"\\u4eca\\u5929\", \"#loc\": \"\\u5317\\u4eac\"}, \"GOALS\": [\"#default\"]}"
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                [
+                  "#loc", 
+                  0
+                ], 
+                [
+                  "#datetime", 
+                  0
+                ]
+              ], 
+              {
+                "#default": 31
+              }
+            ], 
+            "act": "kb_return"
+          }
+        ], 
+        "conf": 0.8205243643452876, 
+        "utt": "{\"RET\": {\"#default\": \"31\"}}"
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": true, 
+          "usr_slots": [
+            {
+              "max_val": "\u5317\u4eac", 
+              "name": "#loc", 
+              "max_conf": 1.414416344389512
+            }, 
+            {
+              "max_val": "\u4eca\u5929", 
+              "name": "#datetime", 
+              "max_conf": 1.5
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": "31"
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#temperature", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#weather_type", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              {
+                "#default": "31"
+              }
+            ], 
+            "act": "inform"
+          }, 
+          {
+            "parameters": [
+              [
+                "#happy", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "\u4f60\u7684\u5929\u6c14\u9884\u62a5 31 \u5728\u8fd9\u91cc. \u4f60\u5bf9\u56de\u7b54\u5185\u5bb9\u6ee1\u610f\u4e48?"
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#default", 
+                null
+              ]
+            ], 
+            "act": "satisfy"
+          }, 
+          {
+            "parameters": [], 
+            "act": "goodbye"
+          }
+        ], 
+        "conf": 0.6916938762117298, 
+        "utt": "\u90fd\u6b63\u786e. \u5c31\u8fd9\u6837\u5427."
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": "\u5317\u4eac", 
+              "name": "#loc", 
+              "max_conf": 1.414416344389512
+            }, 
+            {
+              "max_val": "\u4eca\u5929", 
+              "name": "#datetime", 
+              "max_conf": 1.5
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": true, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": "31"
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#temperature", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#weather_type", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [], 
+            "act": "goodbye"
+          }
+        ], 
+        "utt": "\u56de\u89c1."
+      }
+    ], 
+    [
+      {
+        "domain": "weather", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": null, 
+              "name": "#loc", 
+              "max_conf": 0.0
+            }, 
+            {
+              "max_val": null, 
+              "name": "#datetime", 
+              "max_conf": 0.0
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.0, 
+              "name": "#default", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#temperature", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#weather_type", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [], 
+            "act": "greet"
+          }, 
+          {
+            "parameters": [
+              [
+                "#need", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "\u4f60\u53ef\u4ee5\u95ee\u6211\u5929\u6c14\u4fe1\u606f. \u6709\u4ec0\u4e48\u5e2e\u5230\u4f60\u7684\u4e48?"
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [], 
+            "act": "greet"
+          }, 
+          {
+            "parameters": [
+              [
+                "#default", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "conf": 0.7940602868523372, 
+        "utt": "Hi \u5929\u6c14\u600e\u4e48\u6837?."
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": null, 
+              "name": "#loc", 
+              "max_conf": 0.0
+            }, 
+            {
+              "max_val": null, 
+              "name": "#datetime", 
+              "max_conf": 0.0
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#temperature", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#weather_type", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#loc", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "\u4f60\u60f3\u77e5\u9053\u90a3\u4e2a\u57ce\u5e02\u7684?"
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#loc", 
+                0
+              ], 
+              [
+                "#self_correct", 
+                true
+              ]
+            ], 
+            "act": "inform"
+          }, 
+          {
+            "parameters": [
+              [
+                "#datetime", 
+                2
+              ], 
+              [
+                "#self_correct", 
+                true
+              ]
+            ], 
+            "act": "inform"
+          }
+        ], 
+        "conf": 0.7083838009312008, 
+        "utt": "\u6211\u73b0\u5728\u5728 \u6df1\u5733. \u5965 \u7b49\u4e0b, \u5317\u4eac. \u6211\u60f3\u77e5\u9053 \u4eca\u5929 \u7684. \u5965 \u7b49\u4e0b, \u4eca\u665a."
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": "\u5317\u4eac", 
+              "name": "#loc", 
+              "max_conf": 0.7083838009312008
+            }, 
+            {
+              "max_val": "\u4eca\u665a", 
+              "name": "#datetime", 
+              "max_conf": 0.7083838009312008
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#temperature", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#weather_type", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#loc", 
+                "\u5317\u4eac"
+              ]
+            ], 
+            "act": "implicit_confirm"
+          }, 
+          {
+            "parameters": [
+              [
+                "#datetime", 
+                "\u4eca\u665a"
+              ]
+            ], 
+            "act": "implicit_confirm"
+          }, 
+          {
+            "parameters": [
+              {
+                "#datetime": "\u4eca\u665a", 
+                "#loc": "\u5317\u4eac"
+              }, 
+              [
+                "#default"
+              ]
+            ], 
+            "act": "query"
+          }
+        ], 
+        "utt": "\u6211\u76f8\u4fe1\u4f60\u8bf4\u7684\u662f \u5317\u4eac. \u6211\u76f8\u4fe1\u4f60\u8bf4\u7684\u662f \u4eca\u665a. {\"QUERY\": {\"#datetime\": \"\\u4eca\\u665a\", \"#loc\": \"\\u5317\\u4eac\"}, \"GOALS\": [\"#default\"]}"
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#loc", 
+                0
+              ]
+            ], 
+            "act": "disconfirm"
+          }, 
+          {
+            "parameters": [
+              [
+                [
+                  "#loc", 
+                  0
+                ], 
+                [
+                  "#datetime", 
+                  2
+                ]
+              ], 
+              {
+                "#default": 8
+              }
+            ], 
+            "act": "kb_return"
+          }
+        ], 
+        "conf": 0.7932347795191609, 
+        "utt": "\u662f. {\"RET\": {\"#default\": \"8\"}}"
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": true, 
+          "usr_slots": [
+            {
+              "max_val": "\u5317\u4eac", 
+              "name": "#loc", 
+              "max_conf": 1.5
+            }, 
+            {
+              "max_val": "\u4eca\u665a", 
+              "name": "#datetime", 
+              "max_conf": 1.5
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": "8"
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#temperature", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#weather_type", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              {
+                "#default": "8"
+              }
+            ], 
+            "act": "inform"
+          }, 
+          {
+            "parameters": [
+              [
+                "#happy", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "\u4f60\u7684\u5929\u6c14\u9884\u62a5 8 \u5728\u8fd9\u91cc. \u8fd8\u6709\u5176\u4ed6\u80fd\u5e2e\u5230\u4f60\u7684\u4e48?"
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#loc", 
+                1
+              ]
+            ], 
+            "act": "inform"
+          }
+        ], 
+        "conf": 0.7950790464818982, 
+        "utt": "\u4e0a\u6d77 \u7684."
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": "\u4e0a\u6d77", 
+              "name": "#loc", 
+              "max_conf": 0.7950790464818982
+            }, 
+            {
+              "max_val": "\u4eca\u665a", 
+              "name": "#datetime", 
+              "max_conf": 1.5
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": "8"
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#temperature", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#weather_type", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#loc", 
+                "\u4e0a\u6d77"
+              ]
+            ], 
+            "act": "implicit_confirm"
+          }, 
+          {
+            "parameters": [
+              {
+                "#datetime": "\u4eca\u665a", 
+                "#loc": "\u4e0a\u6d77"
+              }, 
+              [
+                "#default"
+              ]
+            ], 
+            "act": "query"
+          }
+        ], 
+        "utt": "\u6211\u76f8\u4fe1\u4f60\u8bf4\u7684\u662f \u4e0a\u6d77. {\"QUERY\": {\"#datetime\": \"\\u4eca\\u665a\", \"#loc\": \"\\u4e0a\\u6d77\"}, \"GOALS\": [\"#default\"]}"
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                [
+                  "#loc", 
+                  1
+                ], 
+                [
+                  "#datetime", 
+                  2
+                ]
+              ], 
+              {
+                "#default": 24
+              }
+            ], 
+            "act": "kb_return"
+          }
+        ], 
+        "conf": 0.7169096150931764, 
+        "utt": "{\"RET\": {\"#default\": \"24\"}}"
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": true, 
+          "usr_slots": [
+            {
+              "max_val": "\u4e0a\u6d77", 
+              "name": "#loc", 
+              "max_conf": 1.5
+            }, 
+            {
+              "max_val": "\u4eca\u665a", 
+              "name": "#datetime", 
+              "max_conf": 1.5
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": "24"
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#temperature", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#weather_type", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              {
+                "#default": "24"
+              }
+            ], 
+            "act": "inform"
+          }, 
+          {
+            "parameters": [
+              [
+                "#happy", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "\u4f60\u7684\u5929\u6c14\u9884\u62a5 24 \u5728\u8fd9\u91cc. \u8fd8\u6709\u5176\u4ed6\u80fd\u5e2e\u5230\u4f60\u7684\u4e48?"
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#default", 
+                null
+              ]
+            ], 
+            "act": "more_request"
+          }, 
+          {
+            "parameters": [
+              [
+                "#weather_type", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "conf": 0.6464368671380754, 
+        "utt": "\u518d\u95ee\u4e00\u4e0b. \u5929\u6c14\u600e\u6837?."
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": "\u4e0a\u6d77", 
+              "name": "#loc", 
+              "max_conf": 1.5
+            }, 
+            {
+              "max_val": "\u4eca\u665a", 
+              "name": "#datetime", 
+              "max_conf": 1.5
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": true, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": "24"
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#temperature", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.8464368671380753, 
+              "name": "#weather_type", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              {
+                "#datetime": "\u4eca\u665a", 
+                "#loc": "\u4e0a\u6d77"
+              }, 
+              [
+                "#weather_type"
+              ]
+            ], 
+            "act": "query"
+          }
+        ], 
+        "utt": "{\"QUERY\": {\"#datetime\": \"\\u4eca\\u665a\", \"#loc\": \"\\u4e0a\\u6d77\"}, \"GOALS\": [\"#weather_type\"]}"
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                [
+                  "#loc", 
+                  1
+                ], 
+                [
+                  "#datetime", 
+                  2
+                ]
+              ], 
+              {
+                "#weather_type": 0
+              }
+            ], 
+            "act": "kb_return"
+          }
+        ], 
+        "conf": 0.6819222059169154, 
+        "utt": "{\"RET\": {\"#weather_type\": \"\\u4e0b\\u96e8\"}}"
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": true, 
+          "usr_slots": [
+            {
+              "max_val": "\u4e0a\u6d77", 
+              "name": "#loc", 
+              "max_conf": 1.5
+            }, 
+            {
+              "max_val": "\u4eca\u665a", 
+              "name": "#datetime", 
+              "max_conf": 1.5
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": true, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": "24"
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#temperature", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.8464368671380753, 
+              "name": "#weather_type", 
+              "value": "\u4e0b\u96e8"
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              {
+                "#weather_type": "\u4e0b\u96e8"
+              }
+            ], 
+            "act": "inform"
+          }, 
+          {
+            "parameters": [
+              [
+                "#happy", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "\u5929\u6c14\u4f1a\u662f \u4e0b\u96e8. \u8fd8\u6709\u95ee\u9898\u4e48?"
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#weather_type", 
+                null
+              ]
+            ], 
+            "act": "satisfy"
+          }, 
+          {
+            "parameters": [], 
+            "act": "goodbye"
+          }
+        ], 
+        "conf": 0.6875902324593689, 
+        "utt": "\u6ca1\u6709\u95ee\u9898\u4e86. \u8c22\u8c22\u4f60."
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": "\u4e0a\u6d77", 
+              "name": "#loc", 
+              "max_conf": 1.5
+            }, 
+            {
+              "max_val": "\u4eca\u665a", 
+              "name": "#datetime", 
+              "max_conf": 1.5
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": true, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": "24"
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#temperature", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": true, 
+              "conf": 0.8464368671380753, 
+              "name": "#weather_type", 
+              "value": "\u4e0b\u96e8"
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [], 
+            "act": "goodbye"
+          }
+        ], 
+        "utt": "\u56de\u89c1."
+      }
+    ], 
+    [
+      {
+        "domain": "weather", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": null, 
+              "name": "#loc", 
+              "max_conf": 0.0
+            }, 
+            {
+              "max_val": null, 
+              "name": "#datetime", 
+              "max_conf": 0.0
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.0, 
+              "name": "#default", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#temperature", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#weather_type", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [], 
+            "act": "greet"
+          }, 
+          {
+            "parameters": [
+              [
+                "#need", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "\u4f60\u53ef\u4ee5\u95ee\u6211\u5929\u6c14\u4fe1\u606f. \u6709\u4ec0\u4e48\u53ef\u4ee5\u5e2e\u5230\u4f60\u4e48?"
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [], 
+            "act": "greet"
+          }, 
+          {
+            "parameters": [
+              [
+                "#default", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "conf": 0.4966923757201116, 
+        "utt": "Hi \u5929\u6c14\u5c06\u4f1a\u662f?"
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": null, 
+              "name": "#loc", 
+              "max_conf": 0.0
+            }, 
+            {
+              "max_val": null, 
+              "name": "#datetime", 
+              "max_conf": 0.0
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#temperature", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#weather_type", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#loc", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "\u4f60\u60f3\u77e5\u9053\u90a3\u4e2a\u57ce\u5e02\u7684?"
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#loc", 
+                null
+              ], 
+              [
+                "#self_correct", 
+                true
+              ]
+            ], 
+            "act": "inform"
+          }, 
+          {
+            "parameters": [
+              [
+                "#datetime", 
+                1
+              ]
+            ], 
+            "act": "inform"
+          }
+        ], 
+        "conf": 0.8503085841832807, 
+        "utt": "\u5927\u8fde \u7684\u5929\u6c14. hmm ... \u55ef \u4e0d\u597d\u610f\u601d, \u4ec0\u4e48\u503c\u90fd\u53ef\u4ee5. \u65e5\u671f\u662f \u660e\u5929"
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": null, 
+              "name": "#loc", 
+              "max_conf": 0.8503085841832807
+            }, 
+            {
+              "max_val": "\u660e\u5929", 
+              "name": "#datetime", 
+              "max_conf": 0.8503085841832807
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#temperature", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#weather_type", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#loc", 
+                "dont_care"
+              ]
+            ], 
+            "act": "implicit_confirm"
+          }, 
+          {
+            "parameters": [
+              [
+                "#datetime", 
+                "\u660e\u5929"
+              ]
+            ], 
+            "act": "implicit_confirm"
+          }, 
+          {
+            "parameters": [
+              {
+                "#datetime": "\u660e\u5929", 
+                "#loc": "dont_care"
+              }, 
+              [
+                "#default"
+              ]
+            ], 
+            "act": "query"
+          }
+        ], 
+        "utt": "\u597d\u7684, \u4f60\u4e0d\u5173\u5fc3. \u6211\u76f8\u4fe1\u4f60\u8bf4\u7684\u662f \u660e\u5929. {\"QUERY\": {\"#datetime\": \"\\u660e\\u5929\", \"#loc\": \"dont_care\"}, \"GOALS\": [\"#default\"]}"
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                [
+                  "#loc", 
+                  null
+                ], 
+                [
+                  "#datetime", 
+                  1
+                ]
+              ], 
+              {
+                "#default": 23
+              }
+            ], 
+            "act": "kb_return"
+          }
+        ], 
+        "conf": 0.8659313096011221, 
+        "utt": "{\"RET\": {\"#default\": \"23\"}}"
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": true, 
+          "usr_slots": [
+            {
+              "max_val": null, 
+              "name": "#loc", 
+              "max_conf": 1.5
+            }, 
+            {
+              "max_val": "\u660e\u5929", 
+              "name": "#datetime", 
+              "max_conf": 1.5
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": "23"
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#temperature", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#weather_type", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              {
+                "#default": "23"
+              }
+            ], 
+            "act": "inform"
+          }, 
+          {
+            "parameters": [
+              [
+                "#happy", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "\u4f60\u7684\u5929\u6c14\u9884\u62a5 23 \u5728\u8fd9\u91cc. \u4f60\u5bf9\u56de\u7b54\u5185\u5bb9\u6ee1\u610f\u4e48?"
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#default", 
+                null
+              ]
+            ], 
+            "act": "more_request"
+          }, 
+          {
+            "parameters": [
+              [
+                "#temperature", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "conf": 0.7456083234522067, 
+        "utt": "\u7b49\u7b49,\u8fd8\u6709\u4e00\u4e2a\u95ee\u9898. \u6c14\u6e29\u662f?"
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": null, 
+              "name": "#loc", 
+              "max_conf": 1.5
+            }, 
+            {
+              "max_val": "\u660e\u5929", 
+              "name": "#datetime", 
+              "max_conf": 1.5
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": true, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": "23"
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.9456083234522068, 
+              "name": "#temperature", 
+              "value": null
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#weather_type", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              {
+                "#datetime": "\u660e\u5929", 
+                "#loc": "dont_care"
+              }, 
+              [
+                "#temperature"
+              ]
+            ], 
+            "act": "query"
+          }
+        ], 
+        "utt": "{\"QUERY\": {\"#datetime\": \"\\u660e\\u5929\", \"#loc\": \"dont_care\"}, \"GOALS\": [\"#temperature\"]}"
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                [
+                  "#loc", 
+                  null
+                ], 
+                [
+                  "#datetime", 
+                  1
+                ]
+              ], 
+              {
+                "#temperature": 9
+              }
+            ], 
+            "act": "kb_return"
+          }
+        ], 
+        "conf": 0.5471186199690812, 
+        "utt": "{\"RET\": {\"#temperature\": \"38\"}}"
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": true, 
+          "usr_slots": [
+            {
+              "max_val": null, 
+              "name": "#loc", 
+              "max_conf": 1.5
+            }, 
+            {
+              "max_val": "\u660e\u5929", 
+              "name": "#datetime", 
+              "max_conf": 1.5
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": true, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": "23"
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.9456083234522068, 
+              "name": "#temperature", 
+              "value": "38"
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#weather_type", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [
+              {
+                "#temperature": "38"
+              }
+            ], 
+            "act": "inform"
+          }, 
+          {
+            "parameters": [
+              [
+                "#happy", 
+                null
+              ]
+            ], 
+            "act": "request"
+          }
+        ], 
+        "utt": "\u6c14\u6e29\u662f 38. \u4f60\u5bf9\u56de\u7b54\u5185\u5bb9\u6ee1\u610f\u4e48?"
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "USR", 
+        "actions": [
+          {
+            "parameters": [
+              [
+                "#temperature", 
+                null
+              ]
+            ], 
+            "act": "satisfy"
+          }, 
+          {
+            "parameters": [], 
+            "act": "goodbye"
+          }
+        ], 
+        "conf": 0.4949684481134671, 
+        "utt": "\u90fd\u6b63\u786e. \u8c22\u8c22\u4f60."
+      }, 
+      {
+        "domain": "weather", 
+        "speaker": "SYS", 
+        "state": {
+          "kb_update": false, 
+          "usr_slots": [
+            {
+              "max_val": null, 
+              "name": "#loc", 
+              "max_conf": 1.5
+            }, 
+            {
+              "max_val": "\u660e\u5929", 
+              "name": "#datetime", 
+              "max_conf": 1.5
+            }
+          ], 
+          "sys_goals": [
+            {
+              "expected": null, 
+              "delivered": true, 
+              "conf": 1.2, 
+              "name": "#default", 
+              "value": "23"
+            }, 
+            {
+              "expected": null, 
+              "delivered": true, 
+              "conf": 0.9456083234522068, 
+              "name": "#temperature", 
+              "value": "38"
+            }, 
+            {
+              "expected": null, 
+              "delivered": false, 
+              "conf": 0.0, 
+              "name": "#weather_type", 
+              "value": null
+            }
+          ]
+        }, 
+        "actions": [
+          {
+            "parameters": [], 
+            "act": "goodbye"
+          }
+        ], 
+        "utt": "\u518d\u89c1."
+      }
+    ]
+  ]
+}

@@ -32,21 +32,21 @@ class AbstractNlg(object):
 
 
 class SysCommonNlg(object):
-    templates = {SystemAct.GREET: ["Hello.", "Hi.", "Greetings.", "How are you doing?"],
-                 SystemAct.ASK_REPEAT: ["Can you please repeat that?", "What did you say?"],
-                 SystemAct.ASK_REPHRASE: ["Can you please rephrase that?", "Can you say it in another way?"],
-                 SystemAct.GOODBYE: ["Goodbye.", "See you next time."],
-                 SystemAct.CLARIFY: ["I didn't catch you."],
-                 SystemAct.REQUEST+core.BaseUsrSlot.NEED: ["What can I do for you?",
-                                                           "What do you need?",
-                                                           "How can I help?"],
-                 SystemAct.REQUEST+core.BaseUsrSlot.HAPPY: ["What else can I do?",
-                                                            "Are you happy about my answer?",
-                                                            "Anything else?"],
-                 SystemAct.EXPLICIT_CONFIRM+"dont_care": ["Okay, you dont_care, do you?",
-                                                          "You dont_care, right?"],
-                 SystemAct.IMPLICIT_CONFIRM+"dont_care": ["Okay, you dont_care.",
-                                                          "Alright, dont_care."]}
+    templates = {SystemAct.GREET: ["Hello.", "Hi.", "你好.", "哈罗?"],
+                 SystemAct.ASK_REPEAT: ["你可以再说一遍么?", "你刚刚说了什么?"],
+                 SystemAct.ASK_REPHRASE: ["你可以换种说法么?", "你能用其他方式再说一次么?"],
+                 SystemAct.GOODBYE: ["再见.", "回见."],
+                 SystemAct.CLARIFY: ["我没明白你说的."],
+                 SystemAct.REQUEST+core.BaseUsrSlot.NEED: ["有什么可以帮到你么?",
+                                                           "你需要什么帮助么?",
+                                                           "有什么帮到你的么?"],
+                 SystemAct.REQUEST+core.BaseUsrSlot.HAPPY: ["还有其他能帮到你的么?",
+                                                            "你对回答内容满意么?",
+                                                            "还有问题么?"],
+                 SystemAct.EXPLICIT_CONFIRM+"dont_care": ["好的你不在乎这个值么?",
+                                                          "你不关心, 是吧?"],
+                 SystemAct.IMPLICIT_CONFIRM+"dont_care": ["好的, 你不关心.",
+                                                          "好的, 不用关心."]}
 
 class SysNlg(AbstractNlg):
     """
@@ -103,7 +103,7 @@ class SysNlg(AbstractNlg):
 
                     #如果 期望值和追踪值相同， 那么是 user say 前缀添加 yes
                     if e_v is not None:
-                        prefix = "Yes, " if v == e_v else "No, "
+                        prefix = "是的, " if v == e_v else "不是, "
                     else:
                         prefix = ""
                     # 前缀 + slot 采样的模板 + slot 真实值
@@ -143,7 +143,7 @@ class SysNlg(AbstractNlg):
                     a_copy.parameters[0] = (slot_type, "dont_care")
                 else:    #同上 确定性反问
                     slot = self.domain.get_usr_slot(slot_type)
-                    str_actions.append("I believe you said %s."
+                    str_actions.append("我相信你说的是 %s."
                                        % slot.vocabulary[slot_val])
                     a_copy.parameters[0] = (slot_type, slot.vocabulary[slot_val])
 
@@ -181,10 +181,10 @@ class UserNlg(AbstractNlg):
 
                 str_actions.append(json.dumps({"RET": sys_goal_dict}))
             elif a.act == UserAct.GREET:     # 问候就返回问候
-                str_actions.append(self.sample(["Hi.", "Hello robot.", "What's up?"]))
+                str_actions.append(self.sample(["Hi", "Hello.", "你好"]))
 
             elif a.act == UserAct.GOODBYE:  # 结束就返回结束语句
-                str_actions.append(self.sample(["That's all.", "Thank you.", "See you."]))
+                str_actions.append(self.sample([ "谢谢你.", "再见."]))
 
             elif a.act == UserAct.REQUEST:       # 如果是request， 就从 对应的slot中采样出 对应的request 语句
                 slot_type, _ = a.parameters[0]
@@ -198,7 +198,7 @@ class UserNlg(AbstractNlg):
 
                 def get_inform_utt(val):
                     if val is None:
-                        return self.sample(["Anything is fine.", "I don't care.", "Whatever is good."])
+                        return self.sample(["什么值都可以.", "我不关心.", "都可以."])
                     else:
                         return target_slot.sample_inform() % target_slot.vocabulary[val]
 
@@ -206,13 +206,13 @@ class UserNlg(AbstractNlg):
                     wrong_value = target_slot.sample_different(slot_value)    # 随机采样一个其他的曹值
                     wrong_utt = get_inform_utt(wrong_value)                   # 使用错误值生成inform 语句
                     correct_utt = get_inform_utt(slot_value)                  # 使用正确值生成 inform 语句
-                    connector = self.sample(["Oh no,", "Uhm sorry,", "Oh sorry,"])        # 连接语句
+                    connector = self.sample(["奥 不是,", "嗯 不好意思,", "奥 等下,"])        # 连接语句
                     str_actions.append("%s %s %s" % (wrong_utt, connector, correct_utt))   # 错误语句连接正确语句
                 else:
                     str_actions.append(get_inform_utt(slot_value))            # 否则只输出正确语句
 
             elif a.act == UserAct.CHAT:   # 闲聊，就随机采样一个 聊天的语句
-                str_actions.append(self.sample(["What's your name?", "Where are you from?"]))
+                str_actions.append(self.sample(["你的名字是什么?", "你来自哪里?"]))
 
             elif a.act == UserAct.YN_QUESTION:                         # 如果用户是yes / no 的动作
                 slot_type, expect_id = a.parameters[0]                 # 从参数中取出 slot name 和期望曹值的 id
@@ -221,19 +221,19 @@ class UserNlg(AbstractNlg):
                 str_actions.append(target_slot.sample_yn_question(expect_val))   # 采样出yes no 问题模板
 
             elif a.act == UserAct.CONFIRM:
-                str_actions.append(self.sample(["Yes.", "Yep.", "Yeah.", "That's correct.", "Uh-huh."]))
+                str_actions.append(self.sample(["是的.", "是.", "嗯.", "对的.", "ok."]))
 
             elif a.act == UserAct.DISCONFIRM:
-                str_actions.append(self.sample(["No.", "Nope.", "Wrong.", "That's wrong.", "Nay."]))
+                str_actions.append(self.sample(["No.", "不是.", "错了.", "是错的.", "错."]))
 
             elif a.act == UserAct.SATISFY:
-                str_actions.append(self.sample(["No more questions.", "I have all I need.", "All good."]))
+                str_actions.append(self.sample(["没有问题了.", "我想要问的都问完了.", "没有了."]))
 
             elif a.act == UserAct.MORE_REQUEST:
-                str_actions.append(self.sample(["I have more requests.", "One more thing.", "Not done yet."]))
+                str_actions.append(self.sample(["我还有其他问题.", "再问一下.", "等等,还有一个问题."]))
 
             elif a.act == UserAct.NEW_SEARCH:
-                str_actions.append(self.sample(["I want to search a new one.", "New request.", "A new search."]))
+                str_actions.append(self.sample(["我再查一个.", "再问一个问题.", "新问题."]))
 
             else:
                 raise ValueError("Unknown user act %s for NLG" % a.act)
